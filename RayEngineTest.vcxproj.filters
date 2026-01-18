@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\luabrige">
+      <UniqueIdentifier>{8d1451a4-4f73-4efe-a64b-717137eccd0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Graphics">
+      <UniqueIdentifier>{93c8d0e6-6058-4ea7-a93e-47129f6c5247}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Graphics">
+      <UniqueIdentifier>{1e3cb468-bff6-49bb-b343-f5216e0cc951}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="raylib-5.5_win64_msvc16\include\raylib.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="raylib-5.5_win64_msvc16\include\raymath.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="raylib-5.5_win64_msvc16\include\rlgl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image_write.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mainlayer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="raygui-4.0\src\raygui.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dsl_parser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics.h">
+      <Filter>头文件\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="rpng.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="game.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mainscene.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="software_3d_core.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mainlayer.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hello.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lapi.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lauxlib.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lbaselib.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lcode.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lcorolib.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lctype.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ldblib.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ldebug.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ldo.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ldump.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lfunc.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lgc.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\linit.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\liolib.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\llex.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lmathlib.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lmem.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\loadlib.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lobject.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lopcodes.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\loslib.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lparser.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lstate.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lstring.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lstrlib.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ltable.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ltablib.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ltm.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lundump.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lutf8lib.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lvm.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lzio.c">
+      <Filter>源文件\luabrige</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics.c">
+      <Filter>源文件\Graphics</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

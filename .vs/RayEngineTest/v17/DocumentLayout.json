@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "J:\\C\\RayEngineTest\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|J:\\C\\RayEngineTest\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|J:\\C\\RayEngineTest\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|solutionrelative:game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|J:\\C\\RayEngineTest\\mainlayer.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|solutionrelative:mainlayer.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|J:\\C\\RayEngineTest\\game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|solutionrelative:game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|J:\\C\\RayEngineTest\\graphics.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|solutionrelative:graphics.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|J:\\C\\RAYENGINETEST\\SRC\\LAUXLIB.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|solutionrelative:SRC\\LAUXLIB.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|J:\\C\\RayEngineTest\\src\\lapi.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|solutionrelative:src\\lapi.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|J:\\C\\RayEngineTest\\graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AAC71BA1-8A40-4AB6-A0A2-8310839BFF24}|RayEngineTest.vcxproj|solutionrelative:graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 218,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "lapi.c",
+              "DocumentMoniker": "J:\\C\\RayEngineTest\\src\\lapi.c",
+              "RelativeDocumentMoniker": "src\\lapi.c",
+              "ToolTip": "J:\\C\\RayEngineTest\\src\\lapi.c",
+              "RelativeToolTip": "src\\lapi.c",
+              "ViewState": "AgIAAB0EAAAAAAAAAAArwBIEAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-18T13:52:47.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "lauxlib.h",
+              "DocumentMoniker": "J:\\C\\RayEngineTest\\src\\lauxlib.h",
+              "RelativeDocumentMoniker": "src\\lauxlib.h",
+              "ToolTip": "J:\\C\\RayEngineTest\\src\\lauxlib.h",
+              "RelativeToolTip": "src\\lauxlib.h",
+              "ViewState": "AgIAAIAAAAAAAAAAAAArwJEAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-01-18T13:52:27.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "game.h",
+              "DocumentMoniker": "J:\\C\\RayEngineTest\\game.h",
+              "RelativeDocumentMoniker": "game.h",
+              "ToolTip": "J:\\C\\RayEngineTest\\game.h",
+              "RelativeToolTip": "game.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-01-16T15:56:50.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "graphics.h",
+              "DocumentMoniker": "J:\\C\\RayEngineTest\\graphics.h",
+              "RelativeDocumentMoniker": "graphics.h",
+              "ToolTip": "J:\\C\\RayEngineTest\\graphics.h",
+              "RelativeToolTip": "graphics.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-01-16T14:39:07.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "graphics.c",
+              "DocumentMoniker": "J:\\C\\RayEngineTest\\graphics.c",
+              "RelativeDocumentMoniker": "graphics.c",
+              "ToolTip": "J:\\C\\RayEngineTest\\graphics.c",
+              "RelativeToolTip": "graphics.c",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-16T14:07:49.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.c",
+              "DocumentMoniker": "J:\\C\\RayEngineTest\\main.c",
+              "RelativeDocumentMoniker": "main.c",
+              "ToolTip": "J:\\C\\RayEngineTest\\main.c",
+              "RelativeToolTip": "main.c",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAswBkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-16T10:27:23.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "game.c",
+              "DocumentMoniker": "J:\\C\\RayEngineTest\\game.c",
+              "RelativeDocumentMoniker": "game.c",
+              "ToolTip": "J:\\C\\RayEngineTest\\game.c",
+              "RelativeToolTip": "game.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-16T10:13:10.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "mainlayer.c",
+              "DocumentMoniker": "J:\\C\\RayEngineTest\\mainlayer.c",
+              "RelativeDocumentMoniker": "mainlayer.c",
+              "ToolTip": "J:\\C\\RayEngineTest\\mainlayer.c",
+              "RelativeToolTip": "mainlayer.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-16T08:41:47.774Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
