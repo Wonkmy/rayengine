@@ -1,3 +1,2 @@
 ﻿  mainlayer.c
-E:\Cpros\rayengine\src\engine\mainlayer.c(10,10): warning C4305: “=”: 从“double”到“float”截断
   RayEngineTest.vcxproj -> E:\Cpros\rayengine\x64\Debug\RayEngine.exe

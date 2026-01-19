@@ -4,6 +4,7 @@ E:\Cpros\rayengine\src\engine\main.c;E:\Cpros\rayengine\RayEngine\x64\Debug\main
 E:\Cpros\rayengine\src\engine\mainlayer.c;E:\Cpros\rayengine\RayEngine\x64\Debug\mainlayer.obj
 E:\Cpros\rayengine\src\engine\mainscene.c;E:\Cpros\rayengine\RayEngine\x64\Debug\mainscene.obj
 E:\Cpros\rayengine\src\engine\software_3d_core.c;E:\Cpros\rayengine\RayEngine\x64\Debug\software_3d_core.obj
+E:\Cpros\rayengine\src\engine\Player.c;E:\Cpros\rayengine\RayEngine\x64\Debug\Player.obj
 E:\Cpros\rayengine\src\luabrige\lapi.c;E:\Cpros\rayengine\RayEngine\x64\Debug\lapi.obj
 E:\Cpros\rayengine\src\luabrige\lauxlib.c;E:\Cpros\rayengine\RayEngine\x64\Debug\lauxlib.obj
 E:\Cpros\rayengine\src\luabrige\lbaselib.c;E:\Cpros\rayengine\RayEngine\x64\Debug\lbaselib.obj
