@@ -1,24 +1,23 @@
 ﻿  game.c
-E:\Cpros\rayengine\raygui-4.0\src\raygui.h(2654,40): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-  graphics.c
-  (编译源文件“game.c”)
+E:\Cpros\rayengine\src\3rdlib\raygui-4.0\src\raygui.h(2654,40): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“../src/engine/game.c”)
   
-E:\Cpros\rayengine\graphics.c(38,10): warning C4244: “初始化”: 从“lua_Integer”转换到“int”，可能丢失数据
-E:\Cpros\rayengine\graphics.c(39,10): warning C4244: “初始化”: 从“lua_Integer”转换到“int”，可能丢失数据
+  graphics.c
+E:\Cpros\rayengine\src\engine\graphics.c(38,10): warning C4244: “初始化”: 从“lua_Integer”转换到“int”，可能丢失数据
+E:\Cpros\rayengine\src\engine\graphics.c(39,10): warning C4244: “初始化”: 从“lua_Integer”转换到“int”，可能丢失数据
+  main.c
+E:\Cpros\rayengine\src\engine\main.c(43,15): warning C4244: “函数”: 从“float”转换到“int”，可能丢失数据
+E:\Cpros\rayengine\src\engine\main.c(46,36): warning C4244: “函数”: 从“float”转换到“int”，可能丢失数据
+E:\Cpros\rayengine\src\engine\main.c(46,48): warning C4244: “函数”: 从“float”转换到“int”，可能丢失数据
   mainlayer.c
   mainscene.c
-  main.c
-E:\Cpros\rayengine\main.c(43,15): warning C4244: “函数”: 从“float”转换到“int”，可能丢失数据
-E:\Cpros\rayengine\main.c(46,36): warning C4244: “函数”: 从“float”转换到“int”，可能丢失数据
-E:\Cpros\rayengine\main.c(46,48): warning C4244: “函数”: 从“float”转换到“int”，可能丢失数据
   software_3d_core.c
-E:\Cpros\rayengine\software_3d_core.c(24,15): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-E:\Cpros\rayengine\software_3d_core.c(25,15): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-  hello.c
+E:\Cpros\rayengine\src\engine\software_3d_core.c(24,15): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+E:\Cpros\rayengine\src\engine\software_3d_core.c(25,15): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
   lapi.c
-E:\Cpros\rayengine\src\yxlib.h(1,9): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
-  (编译源文件“src/lapi.c”)
-      E:\Cpros\rayengine\src\yxlib.h(1,9):
+E:\Cpros\rayengine\src\luabrige\yxlib.h(1,9): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
+  (编译源文件“../src/luabrige/lapi.c”)
+      E:\Cpros\rayengine\src\luabrige\yxlib.h(1,9):
       之前在命令行上声明的“_CRT_SECURE_NO_WARNINGS”
   
   lauxlib.c
@@ -33,9 +32,9 @@ E:\Cpros\rayengine\src\yxlib.h(1,9): warning C4005: “_CRT_SECURE_NO_WARNINGS�
   lfunc.c
   lgc.c
   linit.c
+  liolib.c
   正在生成代码...
   正在编译...
-  liolib.c
   llex.c
   lmathlib.c
   lmem.c

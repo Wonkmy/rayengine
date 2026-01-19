@@ -1,5 +1,0 @@
-﻿  main.c
-J:\C\RayEngineTest\main.c(43,15): warning C4244: “函数”: 从“float”转换到“int”，可能丢失数据
-J:\C\RayEngineTest\main.c(46,36): warning C4244: “函数”: 从“float”转换到“int”，可能丢失数据
-J:\C\RayEngineTest\main.c(46,48): warning C4244: “函数”: 从“float”转换到“int”，可能丢失数据
-  RayEngineTest.vcxproj -> J:\C\RayEngineTest\x64\Debug\RayEngineTest.exe
