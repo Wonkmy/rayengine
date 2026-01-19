@@ -1,18 +1,18 @@
 //游戏主场景具体实现代码
 #include "game.h"
-
-Texture texture;
-Vector2 p;
+Texture2D texture;
 Vector2 pos;
-bool showMessageBox = false;
+Vector2 targetpos;
 void MainOnStart() {
-	p.x = 0;
-	p.y = 0;
-	pos = screen(p);
-	//texture = LoadTexture("test.png");
-
 	lua_rawgeti(engine.L, LUA_REGISTRYINDEX, engine.load_ref);
 	lua_pcall(engine.L, 0, 0, 0);
+	pos.x = 0;
+	pos.y = -0.1;
+	pos = screen(pos);
+	targetpos.x = 0.0f;
+	targetpos.y = 0.5f;
+	targetpos = screen(targetpos);
+	texture = LoadTexture("test.png");
 }
 void MainOnUpdate() {
 	lua_rawgeti(engine.L, LUA_REGISTRYINDEX, engine.update_ref);
@@ -24,25 +24,17 @@ void MainOnDraw() {
 	lua_rawgeti(engine.L, LUA_REGISTRYINDEX, engine.draw_ref);
 	lua_pcall(engine.L, 0, 0, 0);
 	
-	/*if (GuiButton((Rectangle) { screen(p).x, screen(p).y, 120, 30 }, "#191#Show Message")) showMessageBox = true;
+	DrawTextureV(texture, pos, WHITE);
+	DrawTextureV(texture, targetpos, WHITE);
 
-	if (showMessageBox)
-	{
-		int result = GuiMessageBox((Rectangle) { 85, 70, 250, 100 },
-			"#191#Message Box", "Hi! This is a message!", "Nice;Cool");
+	GuiButton((Rectangle) { pos.x, pos.y, 53, 50 }, "Button");
 
-		if (result >= 0) showMessageBox = false;
-	}*/
+	DrawLineV(pos, targetpos, RED);
 }
 void MainOnDispose() {
-	//UnloadTexture(texture);
 	lua_rawgeti(engine.L, LUA_REGISTRYINDEX, engine.dispose_ref);
 	lua_pcall(engine.L, 0, 0, 0);
 
+	UnloadTexture(texture);
 	lua_close(engine.L);
 }
-
-//luaL_getsubtable(L, LUA_REGISTRYINDEX, LUA_PRELOAD_TABLE);
-//lua_pushcfunction(L, luaopen_modname);
-//lua_setfield(L, -2, modname);
-//lua_pop(L, 1);  // remove PRELOAD table

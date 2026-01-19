@@ -28,6 +28,12 @@
     <Filter Include="源文件\engine\core">
       <UniqueIdentifier>{fe686118-6f0e-4239-a5b1-5550213ab28f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\engine\layout">
+      <UniqueIdentifier>{bda179f5-03d3-4755-8fe0-ed8d9f25c7ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\code">
+      <UniqueIdentifier>{cf8b4661-5a0c-44f1-9b6d-d0a3c65def04}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\engine\game.h">
@@ -44,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="..\src\engine\graphics.h">
       <Filter>头文件\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\engine\Player.h">
+      <Filter>头文件\code</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +169,9 @@
     </ClCompile>
     <ClCompile Include="..\src\engine\main.c">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\Player.c">
+      <Filter>源文件\engine\core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,17 +1,17 @@
 require "graphics"
 require "game"
 function load()
-	game.load()
+	--game.load()
 end
 
 function update()
-	game.update()
+	--game.update()
 end
 
 function draw()
-	game.draw()
+	--game.draw()
 end
 
 function dispose()
-	game.dispose()
+	--game.dispose()
 end

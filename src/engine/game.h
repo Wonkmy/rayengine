@@ -4,6 +4,7 @@
 #include "raylib.h"
 #include "raygui.h"
 #include <stdint.h>
+#include <stdio.h>
 #include "lualib.h"
 #define FPS 60.0f
 #define GAME_WIDTH 1280.0f
@@ -34,7 +35,7 @@ void load();
 void update();
 void draw();
 void dispose();
-int createPNG(char const* filename, int x, int y, int comp, const void* data);
+//int createPNG(char const* filename, int x, int y, int comp, const void* data);
 int createGameApp(GameEngine *engine,int width, int height, const char* title);
 void Draw3D( float dz);
 #endif // GAME_H

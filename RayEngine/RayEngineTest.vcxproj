@@ -106,13 +106,13 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\Cpros\rayengine\src\luabrige;E:\Cpros\rayengine\src\3rdlib\raygui-4.0\src;E:\Cpros\rayengine\src\3rdlib\raylib-5.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\src\luabrige;$(ProjectDir)\..\src\3rdlib\raygui-4.0\src;$(ProjectDir)\..\src\3rdlib\raylib-5.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>raylibdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\;E:\Cpros\rayengine\src\3rdlib\raylib-5.5\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\;$(ProjectDir)\..\src\3rdlib\raylib-5.5\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -133,6 +133,7 @@
     <ClInclude Include="..\src\engine\game.h" />
     <ClInclude Include="..\src\engine\graphics.h" />
     <ClInclude Include="..\src\engine\mainlayer.h" />
+    <ClInclude Include="..\src\engine\Player.h" />
     <ClInclude Include="..\src\engine\rpng.h" />
     <ClInclude Include="..\src\engine\stb_image_write.h" />
   </ItemGroup>
@@ -143,6 +144,7 @@
     <ClCompile Include="..\src\engine\mainlayer.c" />
     <ClCompile Include="..\src\engine\mainscene.c" />
     <ClCompile Include="..\src\engine\software_3d_core.c" />
+    <ClCompile Include="..\src\engine\Player.c" />
     <ClCompile Include="..\src\luabrige\lapi.c" />
     <ClCompile Include="..\src\luabrige\lauxlib.c" />
     <ClCompile Include="..\src\luabrige\lbaselib.c" />
