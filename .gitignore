@@ -54,6 +54,6 @@ dkms.conf
 # debug information files
 *.dwo
 # vs project
-.vs/
-x64/
-RayEngineTest/x64/
+.vs/*
+x64/*
+RayEngineTest/x64/*
