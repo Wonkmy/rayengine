@@ -12,15 +12,15 @@
 #ifndef GAMEENGINE_DEFINED
 #define GAMEENGINE_DEFINED
 typedef struct GameEngine {
+	lua_State* L;
 	void (*load)();
 	void (*update)();
 	void (*draw)();
 	void (*dispose)();
-	lua_State* L;
-	int load_ref;
-	int update_ref;
-	int draw_ref;
-	int dispose_ref;
+	int16_t load_ref;
+	int16_t update_ref;
+	int16_t draw_ref;
+	int16_t dispose_ref;
 } GameEngine;
 #endif
 
@@ -37,5 +37,4 @@ void dispose();
 int createPNG(char const* filename, int x, int y, int comp, const void* data);
 int createGameApp(GameEngine *engine,int width, int height, const char* title);
 void Draw3D( float dz);
-
 #endif // GAME_H
