@@ -1,3 +1,9 @@
+ï»¿/*
+	å½“å‰è„šæœ¬æ˜¯ç»™luaç«¯æ·»åŠ ä¸€ä¸ªåä¸ºgraphicsçš„åº“ï¼Œå…·ä½“é€»è¾‘åœ¨è¿™é‡Œ
+	graphics.c
+	Author:Wonkmy
+*/
+
 #define ltablib_c
 #define LUA_LIB
 
@@ -32,7 +38,7 @@ static int drawtext(lua_State* L) {
 }
 
 static int drawtexture(lua_State* L) {
-	// »ñÈ¡´«ÈëµÄTexture userdata
+	// è·å–ä¼ å…¥çš„Texture userdata
 	Texture2D* tex = (Texture2D*)luaL_checkudata(L, 1, "TextureMetaTable");
 	Texture2D texture = *tex;
 	int x = luaL_checkinteger(L, 2);
@@ -56,7 +62,7 @@ static int texture_gc(lua_State* L)
 
 
 static const luaL_Reg tab_funcs[] = {
-  {"drawtext",drawtext},// ÕâÀïÒıºÅÖĞµÄdrawtext¾ÍÊÇluaÖĞÊ¹ÓÃµÄº¯ÊıÃû
+  {"drawtext",drawtext},// è¿™é‡Œå¼•å·ä¸­çš„drawtextå°±æ˜¯luaä¸­ä½¿ç”¨çš„å‡½æ•°å
   {"createTexture",loadtexture},
   {"drawTexture",drawtexture},
   {"disposeTexture",texture_gc},

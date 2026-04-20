@@ -1,4 +1,4 @@
-/*
+﻿/*
 ** $Id: linit.c $
 ** Initialization of libraries for lua.c and other clients
 ** See Copyright Notice in lua.h
@@ -50,7 +50,7 @@ static const luaL_Reg loadedlibs[] = {
   {LUA_MATHLIBNAME, luaopen_math},
   {LUA_UTF8LIBNAME, luaopen_utf8},
   {LUA_DBLIBNAME, luaopen_debug},
-  {LUA_GRAPHICSLIBNAME,luaopen_graphics},
+  {LUA_GRAPHICSLIBNAME,luaopen_graphics},// 添加一个名为graphics的库
   {NULL, NULL}
 };
 

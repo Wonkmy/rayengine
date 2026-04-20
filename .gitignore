@@ -56,4 +56,4 @@ dkms.conf
 # vs project
 .vs/*
 x64/*
-RayEngineTest/x64/*
+RayEngine/x64/*

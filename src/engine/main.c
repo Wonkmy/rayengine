@@ -1,40 +1,44 @@
-#include <math.h>
+ï»¿#include <math.h>
 #include "game.h"
 #include "lualib.h"
 #include "lauxlib.h"
 #include <stdio.h>
 #include <stdlib.h>
 
- //ÓÎÏ·Ö÷Èë¿ÚÎÄ¼ş
+#include "mainlayer.h"
+
+ //æ¸¸æˆä¸»å…¥å£æ–‡ä»¶
 int main(int args, const char* argv[])
 {
-	lua_State* L = luaL_newstate();// ´´½¨Ò»¸öĞÂµÄlua½âÊÍÆ÷×´Ì¬»ú
-	luaL_openlibs(L);// ¼ÓÔØlua±ê×¼¿â
-	luaL_newmetatable(L, "TextureMetaTable");// ´´½¨TextureÔª±íÓÃÀ´¹ÜÀíÈ«¾ÖÎÆÀí
+#ifdef USE_LUA
+	lua_State* L = luaL_newstate();// åˆ›å»ºä¸€ä¸ªæ–°çš„luaè§£é‡Šå™¨çŠ¶æ€æœº
+	luaL_openlibs(L);// åŠ è½½luaæ ‡å‡†åº“
+	luaL_newmetatable(L, "TextureMetaTable");// åˆ›å»ºTextureå…ƒè¡¨ç”¨æ¥ç®¡ç†å…¨å±€çº¹ç†
+	luaL_dofile(L, argv[0]);// æ‰§è¡Œluaæ–‡ä»¶
+	lua_getglobal(L, "onLoad");
 	if (luaL_dofile(L, argv[1])) {
 		fprintf(stderr, "Error:%s\n", lua_tostring(L, -1));
 	}
-
-	// »ñÈ¡loadº¯ÊıÒıÓÃ
+	// è·å–loadå‡½æ•°å¼•ç”¨
 	lua_getglobal(L, "load");
 	engine.load_ref = luaL_ref(L, LUA_REGISTRYINDEX);
 	
-	// »ñÈ¡updateº¯ÊıÒıÓÃ
+	// è·å–updateå‡½æ•°å¼•ç”¨
 	lua_getglobal(L, "update");
 	engine.update_ref = luaL_ref(L, LUA_REGISTRYINDEX);
 
-	// »ñÈ¡drawº¯ÊıÒıÓÃ
+	// è·å–drawå‡½æ•°å¼•ç”¨
 	lua_getglobal(L, "draw");
 	engine.draw_ref = luaL_ref(L, LUA_REGISTRYINDEX);
 
-	// »ñÈ¡disposeº¯ÊıÒıÓÃ
+	// è·å–disposeå‡½æ•°å¼•ç”¨
 	lua_getglobal(L, "dispose");
 	engine.dispose_ref = luaL_ref(L, LUA_REGISTRYINDEX);
 
-	// ½«lua_StateÖ¸Õë¸³Öµ¸øÓÎÏ·ÒıÇæ
+	// å°†lua_StateæŒ‡é’ˆèµ‹å€¼ç»™æ¸¸æˆå¼•æ“
 	engine.L = L;
 
-	// ÉèÖÃÓÎÏ·ÒıÇæµÄ¸÷¸ö»Øµ÷º¯Êı
+	// è®¾ç½®æ¸¸æˆå¼•æ“çš„å„ä¸ªå›è°ƒå‡½æ•°
 	engine.load = &load;
 	engine.update = &update;
 	engine.draw = &draw;
@@ -42,12 +46,27 @@ int main(int args, const char* argv[])
 
 	SetTargetFPS(FPS);
 
-	// ´´½¨²¢ÔËĞĞÓÎÏ·Ó¦ÓÃ
+	// åˆ›å»ºå¹¶è¿è¡Œæ¸¸æˆåº”ç”¨
     int r = createGameApp(&engine, GAME_WIDTH, GAME_HEIGHT, "My Game");
     return r;
+#endif
+
+	InitWindow(GAME_WIDTH, GAME_HEIGHT, GAME_TITLE);
+	MainOnStart();
+	while (!WindowShouldClose())
+	{
+		BeginDrawing();
+		ClearBackground(BLACK);
+		MainOnUpdate();
+		MainOnDraw();
+		EndDrawing();
+	}
+	MainOnDispose();
+	CloseWindow();
+	return 0;
 }
 
-// ×ÔÈ»ÓïÑÔ½Å±¾½âÎöÆ÷Ö÷Èë¿ÚÎÄ¼ş
+// è‡ªç„¶è¯­è¨€è„šæœ¬è§£æå™¨ä¸»å…¥å£æ–‡ä»¶
 //#define DSL_IMPLEMENTATION
 //#include "dsl_parser.h"
 //
@@ -55,13 +74,13 @@ int main(int args, const char* argv[])
 //{
 //    AST ast;
 //
-//    /* 1. ½âÎö½Å±¾ */
+//    /* 1. è§£æè„šæœ¬ */
 //    dsl_parse_file("game.dsl", &ast);
 //
-//    /* 2. ´òÓ¡ AST£¨ÑéÖ¤ÊÇ·ñ½âÎö³É¹¦£© */
+//    /* 2. æ‰“å° ASTï¼ˆéªŒè¯æ˜¯å¦è§£ææˆåŠŸï¼‰ */
 //    dsl_ast_dump(&ast);
 //
-//    /* 3. ÊÍ·ÅÄÚ´æ */
+//    /* 3. é‡Šæ”¾å†…å­˜ */
 //    dsl_ast_free(&ast);
 //	system("pause");
 //    return 0;

@@ -1,5 +1,6 @@
-#ifndef GAME_H
+﻿#ifndef GAME_H
 #define GAME_H
+//#define USE_LUA
 
 #include "raylib.h"
 #include "raygui.h"
@@ -8,9 +9,11 @@
 #define FPS 60.0f
 #define GAME_WIDTH 1280.0f
 #define GAME_HEIGHT 720.0f
+#define GAME_TITLE "MyGames"
 
 #ifndef GAMEENGINE_DEFINED
 #define GAMEENGINE_DEFINED
+
 typedef struct GameEngine {
 	lua_State* L;
 	void (*load)();
