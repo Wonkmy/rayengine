@@ -134,15 +134,17 @@
     <ClInclude Include="..\src\engine\game.h" />
     <ClInclude Include="..\src\engine\graphics.h" />
     <ClInclude Include="..\src\engine\mainlayer.h" />
+    <ClInclude Include="..\src\engine\MeshRender.h" />
     <ClInclude Include="..\src\engine\rpng.h" />
     <ClInclude Include="..\src\engine\stb_image_write.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\engine\entity.c" />
     <ClCompile Include="..\src\engine\game.c" />
     <ClCompile Include="..\src\engine\graphics.c" />
     <ClCompile Include="..\src\engine\main.c" />
     <ClCompile Include="..\src\engine\mainlayer.c" />
-    <ClCompile Include="..\src\engine\mainscene.c" />
+    <ClCompile Include="..\src\engine\MeshRender.c" />
     <ClCompile Include="..\src\engine\software_3d_core.c" />
     <ClCompile Include="..\src\luabrige\lapi.c" />
     <ClCompile Include="..\src\luabrige\lauxlib.c" />

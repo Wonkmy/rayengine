@@ -1,8 +1,9 @@
+F:\dev-work\c\rayengine\src\engine\entity.c;F:\dev-work\c\rayengine\RayEngine\x64\Debug\entity.obj
 F:\dev-work\c\rayengine\src\engine\game.c;F:\dev-work\c\rayengine\RayEngine\x64\Debug\game.obj
 F:\dev-work\c\rayengine\src\engine\graphics.c;F:\dev-work\c\rayengine\RayEngine\x64\Debug\graphics.obj
 F:\dev-work\c\rayengine\src\engine\main.c;F:\dev-work\c\rayengine\RayEngine\x64\Debug\main.obj
 F:\dev-work\c\rayengine\src\engine\mainlayer.c;F:\dev-work\c\rayengine\RayEngine\x64\Debug\mainlayer.obj
-F:\dev-work\c\rayengine\src\engine\mainscene.c;F:\dev-work\c\rayengine\RayEngine\x64\Debug\mainscene.obj
+F:\dev-work\c\rayengine\src\engine\MeshRender.c;F:\dev-work\c\rayengine\RayEngine\x64\Debug\MeshRender.obj
 F:\dev-work\c\rayengine\src\engine\software_3d_core.c;F:\dev-work\c\rayengine\RayEngine\x64\Debug\software_3d_core.obj
 F:\dev-work\c\rayengine\src\luabrige\lapi.c;F:\dev-work\c\rayengine\RayEngine\x64\Debug\lapi.obj
 F:\dev-work\c\rayengine\src\luabrige\lauxlib.c;F:\dev-work\c\rayengine\RayEngine\x64\Debug\lauxlib.obj

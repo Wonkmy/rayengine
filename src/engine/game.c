@@ -1,29 +1,52 @@
-#define RAYGUI_IMPLEMENTATION
+ï»¿#define RAYGUI_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
-#include "raylib.h"
 #include "game.h"
-// ÓÎÏ·Ö÷äÖÈ¾¡¢¸üĞÂÑ­»·ÊµÏÖÎÄ¼ş
-int createGameApp(GameEngine *engine,int width, int height, const char *title)
-{
-	InitWindow(width, height, title);
-	engine->load();
-	while (!WindowShouldClose())
-	{
-		engine-> update();
-		BeginDrawing();
-		ClearBackground(BLACK);
-		engine->draw();
-		EndDrawing();
-	}
-	engine->dispose();
-	// ÊÍ·Åengine
-	engine = NULL;
-	CloseWindow();
-	return 0;
+
+void initGame() {
+	// åˆå§‹åŒ–æ¸¸æˆç›¸å…³èµ„æº
 }
 
-int createPNG(char const* filename, int x, int y, int comp, const void* data) {
-	int ok = stbi_write_png(filename, x, y, 4, data, 2 * sizeof(uint32_t));
-	return ok;
+Font MyLoadFont()
+{
+	int count = 0;
+	int start = 0x4E00; // ä¸­æ–‡èµ·å§‹
+	int end = 0x9FFF; // ä¸­æ–‡ç»“æŸ
+
+	int total = end - start + 1;
+	int* codepoints = malloc(sizeof(int) * total);
+
+	for (int i = 0; i < total; i++)
+	{
+		codepoints[i] = start + i;
+	}
+
+	Font font = LoadFontEx("assets/fonts/alibaba.ttf", 30, codepoints, total);
+
+	free(codepoints);
+
+    return font;
+}
+
+Actor NewGame() {
+	Actor mainLayer;
+	mainLayer.OnStart = &OnStart;
+	mainLayer.OnUpdate = &OnUpdate;
+	mainLayer.OnDraw = &OnDraw;
+	mainLayer.OnDispose = &OnDispose;
+	return mainLayer;
+}
+void RunGame(Actor *actor) {
+	InitWindow(GAME_WIDTH, GAME_HEIGHT, GAME_TITLE);
+	initGame();
+	actor->OnStart();
+	while (!WindowShouldClose())
+	{
+		BeginDrawing();
+			ClearBackground(BLACK);
+			actor->OnUpdate();
+			actor->OnDraw();
+		EndDrawing();
+	}
+	actor->OnDispose();
+	CloseWindow();
 }

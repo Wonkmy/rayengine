@@ -45,6 +45,9 @@
     <ClInclude Include="..\src\engine\graphics.h">
       <Filter>头文件\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\engine\MeshRender.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\engine\graphics.c">
@@ -155,11 +158,14 @@
     <ClCompile Include="..\src\engine\mainlayer.c">
       <Filter>源文件\engine\core</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\engine\mainscene.c">
-      <Filter>源文件\engine\core</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\engine\main.c">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\MeshRender.c">
+      <Filter>源文件\engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\entity.c">
+      <Filter>源文件\engine\core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

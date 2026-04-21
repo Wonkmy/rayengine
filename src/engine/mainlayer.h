@@ -1,6 +1,5 @@
-#pragma once
-#include "game.h"
-void MainOnStart();
-void MainOnUpdate();
-void MainOnDraw();
-void MainOnDispose();
+﻿#pragma once
+void OnStart();
+void OnUpdate();
+void OnDraw();
+void OnDispose();
