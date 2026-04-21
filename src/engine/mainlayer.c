@@ -41,15 +41,23 @@ void MainOnDispose() {
 #endif // USE_LUA
 
 Texture texture;
-
+Model model;
+Vector3 position = { 0.0f, 0.0f, 0.0f };
 void MainOnStart() {
 	texture = LoadTexture("assets/sprites/test.png");
+	model = LoadModel("assets/models/bridge.obj");
+	Texture2D texture = LoadTexture("assets/models/bridge_diffuse.png");
+	model.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = texture;
 }
 void MainOnUpdate() {
-	
+	if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+		position.x += 1; // Move model right
+	}
 }
 void MainOnDraw() {
-	DrawTexture(texture, 0, 0, WHITE);
+	DrawModel(model, position, 1.0f, WHITE);
 }
 void MainOnDispose() {
+	UnloadTexture(texture);
+	UnloadModel(model);
 }

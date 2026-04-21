@@ -32,7 +32,7 @@ static int loadtexture(lua_State* L) {
 }
 static int drawtext(lua_State* L) {
 	const char* fromname = luaL_checkstring(L, 1);
-	DrawText(fromname, 100, 100, 20, RED);
+	DrawText(fromname, 100, 100, 20, WHITE);
 	
 	return 0;
 }

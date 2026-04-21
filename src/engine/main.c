@@ -53,12 +53,22 @@ int main(int args, const char* argv[])
 
 	InitWindow(GAME_WIDTH, GAME_HEIGHT, GAME_TITLE);
 	MainOnStart();
+	Camera camera = { 0 };
+	camera.position = (Vector3){ 50.0f, 50.0f, 50.0f }; // Camera position
+	camera.target = (Vector3){ 0.0f, 0.0f, 0.0f };     // Camera looking at point
+	camera.up = (Vector3){ 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
+	camera.fovy = 25.0f;                                // Camera field-of-view Y
+	camera.projection = CAMERA_PERSPECTIVE;             // Camera mode type
+
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
-		ClearBackground(BLACK);
-		MainOnUpdate();
-		MainOnDraw();
+			ClearBackground(BLACK);
+			MainOnUpdate();
+			BeginMode3D(camera);
+				MainOnDraw();
+				DrawGrid(20, 10.0f);         // Draw a grid
+			EndMode3D();
 		EndDrawing();
 	}
 	MainOnDispose();
