@@ -131,7 +131,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>F:\dev-work\c\rayengine\imgui-1.92.7;$(SolutionDir)\Raylib\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\imgui-1.92.7;$(SolutionDir)\Raylib\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>

@@ -9,7 +9,7 @@ void initGame() {
 	// 设置2D相机
 	camera2d.offset = WINDOW_CENTER;// 设置相机偏移为屏幕中心（注意：这里就不用再减去物体宽高的一半了）
 	camera2d.rotation = GAME_ROTATE;
-	camera2d.zoom = GAME_SCALE;
+	camera2d.zoom = CAMERA_ZOOM;
 	SetTargetFPS(FPS);
 
 	rlImGuiSetup(true);
@@ -53,6 +53,7 @@ Actor NewGame() {
 	mainLayer.OnStart = &OnStart;
 	mainLayer.OnUpdate = &OnUpdate;
 	mainLayer.OnDraw = &OnDraw;
+	mainLayer.OnGUI = &OnGUI;
 	mainLayer.OnDispose = &OnDispose;
 	return mainLayer;
 }
@@ -61,12 +62,16 @@ void RunGame(Actor *actor) {
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
-			ClearBackground(BLACK);
+			ClearBackground(SKYBLUE);
 #if defined(GAME_MODE_2D)
+			actor->OnUpdate();
 			BeginMode2D(camera2d);
-				actor->OnUpdate();
 				actor->OnDraw();
 			EndMode2D();
+			// 单独绘制GUI，确保它在所有2D元素之上
+			rlImGuiBegin();
+				actor->OnGUI();
+			rlImGuiEnd();
 #endif
 		EndDrawing();
 	}

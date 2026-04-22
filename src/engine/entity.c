@@ -7,8 +7,8 @@ void lerp(Vector2* start, Vector2* end, float t, Vector2* result) {
 }
 
 void UpdateBoundingBox() {
-	Vector3 min = (Vector3){ entity.position.x, entity.position.y };
-	Vector3 max = (Vector3){ entity.position.x + entity.texture.width,  entity.position.y + entity.texture.height};
+	Vector3 min = (Vector3){ entity.position.x - entity.texture.width / 2 * GAME_SCALE, entity.position.y - entity.texture.height / 2 * GAME_SCALE };
+	Vector3 max = (Vector3){ entity.position.x + entity.texture.width / 2 * GAME_SCALE,  entity.position.y + entity.texture.height / 2 * GAME_SCALE };
 	entity.boundingBox = (BoundingBox){ min, max };
 }
 
@@ -18,42 +18,40 @@ void updateNewPosition(Vector2* currentPosition, Vector2* targetPosition) {
 }
 
 void EntityOnStart() {
+	entity.name = "Player1"; // 初始化名称为空字符串
 	entity.position = (Vector2){ 0.0f, 0.0f };
 	entity.texture = LoadTexture("assets/sprites/f1.png");
-	entity.position.x = (GetScreenWidth() / 2.0f - (entity.texture.width / 2));
-	entity.position.y = (GetScreenHeight() / 2.0f - (entity.texture.height / 2));
-	entity.boundingBox = (BoundingBox){ entity.position.x + entity.texture.width,  entity.position.y + entity.texture.height };
+	entity.position.x = (GetScreenWidth() / 2.0f);
+	entity.position.y = (GetScreenHeight() / 2.0f);
+	entity.boundingBox = (BoundingBox){ entity.position.x + entity.texture.width * GAME_SCALE,  entity.position.y + entity.texture.height * GAME_SCALE };
 
 	camera2d.target = entity.position;
 }
 void EntityOnUpdate() {
-	//updateNewPosition(&entity.position, &(Vector2){GetMouseX() - entity.texture.width / 2, entity.position.y });
-	entity.position.x = GetMouseX() / GAME_SCALE - entity.texture.width / 4.0f;
-	entity.position.y = GetScreenHeight() - entity.texture.height / 2.0f;
+	entity.position.x = GetMouseX();
+	entity.position.y = GetMouseY();
 	UpdateBoundingBox();
 }
 void EntityOnDraw() {
-	//DrawTexturePro(entity.texture,
-	//	(Rectangle) {
-	//	0, 0, entity.texture.width, entity.texture.height
-	//}, // 源矩形（纹理坐标）
-	//	(Rectangle) {
-	//	entity.position.x, entity.position.y, entity.texture.width, entity.texture.height
-	//}, // 目标矩形（屏幕坐标）
-	//	(Vector2) {
-	//	0.0f, 0.0f
-	//},// 设置原点（旋转和缩放的中心点）
-	//	0.0f, WHITE);
+	DrawTexturePro(entity.texture,
+		(Rectangle) {
+		0,0, entity.texture.width, entity.texture.height
+	},
+		(Rectangle) {
+		entity.position.x, entity.position.y, entity.texture.width* GAME_SCALE, entity.texture.height* GAME_SCALE
+	},
+		(Vector2) {
+		entity.texture.width / 2 * GAME_SCALE, entity.texture.height / 2 * GAME_SCALE
+	},
+		0.0f, WHITE);
 
-	//DrawBoundingBox(entity.boundingBox, RED);
-
-
-	//// ===== ImGui 开始 =====
-
-	rlImGuiBegin();
-	ImGui_Draw();
-	rlImGuiEnd();
-	//// ===== ImGui 结束 =====
+	DrawBoundingBox(entity.boundingBox, RED);
+}
+void EntityOnGUI() {
+	char finalText[100];
+	snprintf(finalText, sizeof(finalText), "X: %.1f Y: %.1f\nName: %s", entity.position.x,entity.position.y, entity.name);
+	ImGuiImpl_DrawText("Transform", 10, 50, finalText);
+	DrawFPS(GetScreenWidth() - 100, 10);
 }
 void EntityOnDispose() {
 	UnloadTexture(entity.texture);

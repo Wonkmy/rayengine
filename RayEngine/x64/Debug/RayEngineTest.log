@@ -1,3 +1,7 @@
-﻿E:\vsinstall\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(524,5): warning MSB8004: Output 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
-  brigeImgui.cpp
-  RayEngineTest.vcxproj -> F:\dev-work\c\rayengine\out\RayEngine.exe
+﻿E:\VSInstall\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(524,5): warning MSB8004: Output 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
+  entity.c
+J:\C\RayEngineTest\src\engine\entity.c(31,22): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+J:\C\RayEngineTest\src\engine\entity.c(32,22): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+J:\C\RayEngineTest\src\engine\entity.c(38,22): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+J:\C\RayEngineTest\src\engine\entity.c(38,44): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+  RayEngineTest.vcxproj -> J:\C\RayEngineTest\out\RayEngine.exe

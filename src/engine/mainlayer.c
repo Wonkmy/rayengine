@@ -5,13 +5,13 @@ Vector2 card_position = { 0.0f, 0.0f };
 #define CARD_HEIGHT 300
 #define BoundingBoxWIDTH 205
 #define BoundingBoxHEIGHT 305
-Font font;
+//Font font;
 Texture texture;
 void OnStart() {
 	card_position.x = GetScreenWidth() / 2.0f - (CARD_WIDTH / 2);
 	card_position.y = GetScreenHeight() / 2.0f - (CARD_HEIGHT / 2);
 	EntityOnStart();
-	font = MyLoadFont();
+	//font = MyLoadFont();
 }
 void OnUpdate() {
 	EntityOnUpdate();
@@ -25,6 +25,9 @@ void OnUpdate() {
 }
 void OnDraw() {
 	EntityOnDraw();
+}
+void OnGUI() {
+	EntityOnGUI();
 }
 void OnDispose() {
 	EntityOnDispose();
