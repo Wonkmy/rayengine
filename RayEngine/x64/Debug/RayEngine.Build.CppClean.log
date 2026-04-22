@@ -1,6 +1,5 @@
 f:\dev-work\c\rayengine\rayengine\x64\debug\vc143.pdb
 f:\dev-work\c\rayengine\rayengine\x64\debug\vc143.idb
-f:\dev-work\c\rayengine\rayengine\x64\debug\liolib.obj
 f:\dev-work\c\rayengine\rayengine\x64\debug\linit.obj
 f:\dev-work\c\rayengine\rayengine\x64\debug\lgc.obj
 f:\dev-work\c\rayengine\rayengine\x64\debug\lfunc.obj
@@ -20,6 +19,7 @@ f:\dev-work\c\rayengine\rayengine\x64\debug\mainlayer.obj
 f:\dev-work\c\rayengine\rayengine\x64\debug\main.obj
 f:\dev-work\c\rayengine\rayengine\x64\debug\graphics.obj
 f:\dev-work\c\rayengine\rayengine\x64\debug\game.obj
+f:\dev-work\c\rayengine\rayengine\x64\debug\entity.obj
 f:\dev-work\c\rayengine\rayengine\x64\debug\lzio.obj
 f:\dev-work\c\rayengine\rayengine\x64\debug\lvm.obj
 f:\dev-work\c\rayengine\rayengine\x64\debug\lutf8lib.obj
@@ -38,6 +38,8 @@ f:\dev-work\c\rayengine\rayengine\x64\debug\loadlib.obj
 f:\dev-work\c\rayengine\rayengine\x64\debug\lmem.obj
 f:\dev-work\c\rayengine\rayengine\x64\debug\lmathlib.obj
 f:\dev-work\c\rayengine\rayengine\x64\debug\llex.obj
+f:\dev-work\c\rayengine\rayengine\x64\debug\liolib.obj
+f:\dev-work\c\rayengine\rayengine\x64\debug\brigeimgui.obj
 f:\dev-work\c\rayengine\out\rayengine.exe
 f:\dev-work\c\rayengine\out\rayengine.pdb
 f:\dev-work\c\rayengine\rayengine\x64\debug\rayengine.ilk

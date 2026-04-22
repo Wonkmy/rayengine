@@ -107,12 +107,12 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\src\luabrige;$(SolutionDir)\src\3rdlib\raygui-4.0\src;$(SolutionDir)\Raylib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\dev-work\c\rayengine\rlImGui-main;F:\dev-work\c\rayengine\imgui-1.92.7;$(SolutionDir)\src\luabrige;$(SolutionDir)\src\3rdlib\raygui-4.0\src;$(SolutionDir)\Raylib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>raylib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>raylib.lib;imguilib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\;F:\dev-work\c\rayengine\out;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -139,6 +139,7 @@
     <ClInclude Include="..\src\engine\stb_image_write.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\engine\brigeImgui.cpp" />
     <ClCompile Include="..\src\engine\entity.c" />
     <ClCompile Include="..\src\engine\game.c" />
     <ClCompile Include="..\src\engine\graphics.c" />

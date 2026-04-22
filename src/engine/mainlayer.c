@@ -15,7 +15,7 @@ void OnStart() {
 }
 void OnUpdate() {
 	EntityOnUpdate();
-	if(IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
+	if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
 		if (GetMouseX() >= card_position.x && GetMouseX() <= card_position.x + CARD_WIDTH &&
 			GetMouseY() >= card_position.y && GetMouseY() <= card_position.y + CARD_HEIGHT) {
 			card_position.x = GetMouseX() - (CARD_WIDTH / 2);
@@ -25,18 +25,6 @@ void OnUpdate() {
 }
 void OnDraw() {
 	EntityOnDraw();
-	/*BoundingBox card_box = { {card_position.x, card_position.y}, {card_position.x + BoundingBoxWIDTH, card_position.y + BoundingBoxHEIGHT} };
-	DrawBoundingBox(card_box, RED);
-	
-	BoundingBox card_box2 = { {0,0}, {100,100} };
-	DrawBoundingBox(card_box2, GREEN);
-	DrawRectangle(card_position.x, card_position.y, CARD_WIDTH, CARD_HEIGHT, DARKBLUE);
-	
-	DrawTextEx(font, u8"好的", card_position, 30, 2, WHITE);
-
-	if(CheckCollisionBoxes(card_box, card_box2)) {
-		DrawText("IsHited!!", 10, 10, 20, YELLOW);
-	}*/
 }
 void OnDispose() {
 	EntityOnDispose();

@@ -4,6 +4,15 @@
 
 void initGame() {
 	// 初始化游戏相关资源
+	// 初始化窗口
+	InitWindow(GAME_WIDTH, GAME_HEIGHT, GAME_TITLE);
+	// 设置2D相机
+	camera2d.offset = WINDOW_CENTER;// 设置相机偏移为屏幕中心（注意：这里就不用再减去物体宽高的一半了）
+	camera2d.rotation = GAME_ROTATE;
+	camera2d.zoom = GAME_SCALE;
+	SetTargetFPS(FPS);
+
+	rlImGuiSetup(true);
 }
 
 Font MyLoadFont()
@@ -27,6 +36,18 @@ Font MyLoadFont()
     return font;
 }
 
+void CameraShake(float intensity, float duration) {
+	float elapsed = 0.0f;
+	while (elapsed < duration) {
+		float offsetX = (GetRandomValue(-100, 100) / 100.0f) * intensity;
+		float offsetY = (GetRandomValue(-100, 100) / 100.0f) * intensity;
+		camera2d.offset.x = WINDOW_CENTER.x + offsetX;
+		camera2d.offset.y = WINDOW_CENTER.y + offsetY;
+		elapsed += GetFrameTime();
+	}
+	camera2d.offset = WINDOW_CENTER; // 恢复相机位置
+}
+
 Actor NewGame() {
 	Actor mainLayer;
 	mainLayer.OnStart = &OnStart;
@@ -36,15 +57,17 @@ Actor NewGame() {
 	return mainLayer;
 }
 void RunGame(Actor *actor) {
-	InitWindow(GAME_WIDTH, GAME_HEIGHT, GAME_TITLE);
-	initGame();
 	actor->OnStart();
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
 			ClearBackground(BLACK);
-			actor->OnUpdate();
-			actor->OnDraw();
+#if defined(GAME_MODE_2D)
+			BeginMode2D(camera2d);
+				actor->OnUpdate();
+				actor->OnDraw();
+			EndMode2D();
+#endif
 		EndDrawing();
 	}
 	actor->OnDispose();

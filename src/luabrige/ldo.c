@@ -1,4 +1,4 @@
-/*
+﻿/*
 ** $Id: ldo.c $
 ** Stack and Call structure of Lua
 ** See Copyright Notice in lua.h
@@ -80,7 +80,7 @@
 
 
 
-/* chain list of long jump buffers */
+/* chain list of long jump buffers 缓冲区的链表*/
 struct lua_longjmp {
   struct lua_longjmp *previous;
   luai_jmpbuf b;
@@ -155,6 +155,7 @@ int luaD_rawrunprotected (lua_State *L, Pfunc f, void *ud) {
 /*
 ** {==================================================================
 ** Stack reallocation
+* 堆栈重分配
 ** ===================================================================
 */
 

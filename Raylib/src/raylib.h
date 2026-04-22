@@ -334,10 +334,10 @@ typedef Camera3D Camera;    // Camera type fallback, defaults to Camera3D
 
 // Camera2D, defines position/orientation in 2d space
 typedef struct Camera2D {
-    Vector2 offset;         // Camera offset (screen space offset from window origin)
-    Vector2 target;         // Camera target (world space target point that is mapped to screen space offset)
+    Vector2 offset;         // Camera offset (screen space offset from window origin)相机偏移（相对于窗口原点的屏幕空间偏移）
+    Vector2 target;         // Camera target (world space target point that is mapped to screen space offset)相机目标（映射到屏幕空间偏移的世界空间目标点）
     float rotation;         // Camera rotation in degrees (pivots around target)
-    float zoom;             // Camera zoom (scaling around target), must not be set to 0, set to 1.0f for no scale
+    float zoom;             // Camera zoom (scaling around target), must not be set to 0, set to 1.0f for no scale相机缩放（围绕目标缩放），不得设置为0，设置为1.0f表示无缩放
 } Camera2D;
 
 // Mesh, vertex data and vao/vbo
