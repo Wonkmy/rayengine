@@ -19,21 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\imgui-1.92.7\imconfig.h" />
-    <ClInclude Include="..\imgui-1.92.7\imgui.h" />
-    <ClInclude Include="..\imgui-1.92.7\imgui_internal.h" />
-    <ClInclude Include="..\imgui-1.92.7\imstb_rectpack.h" />
-    <ClInclude Include="..\imgui-1.92.7\imstb_textedit.h" />
-    <ClInclude Include="..\imgui-1.92.7\imstb_truetype.h" />
-    <ClInclude Include="..\rlImGui-main\imgui_impl_raylib.h" />
+    <ClInclude Include="..\imgui\imconfig.h" />
+    <ClInclude Include="..\imgui\imgui.h" />
+    <ClInclude Include="..\imgui\imgui_internal.h" />
+    <ClInclude Include="..\imgui\imstb_rectpack.h" />
+    <ClInclude Include="..\imgui\imstb_textedit.h" />
+    <ClInclude Include="..\imgui\imstb_truetype.h" />
     <ClInclude Include="..\rlImGui-main\rlImGui.h" />
     <ClInclude Include="..\rlImGui-main\rlImGuiColors.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\imgui-1.92.7\imgui.cpp" />
-    <ClCompile Include="..\imgui-1.92.7\imgui_draw.cpp" />
-    <ClCompile Include="..\imgui-1.92.7\imgui_tables.cpp" />
-    <ClCompile Include="..\imgui-1.92.7\imgui_widgets.cpp" />
+    <ClCompile Include="..\imgui\imgui.cpp" />
+    <ClCompile Include="..\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\imgui\imgui_tables.cpp" />
+    <ClCompile Include="..\imgui\imgui_widgets.cpp" />
     <ClCompile Include="..\rlImGui-main\rlImGui.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -131,7 +130,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)\imgui-1.92.7;$(SolutionDir)\Raylib\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\imgui;$(SolutionDir)\Raylib\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>

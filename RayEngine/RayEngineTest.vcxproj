@@ -107,7 +107,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\rlImGui-main;$(SolutionDir)\imgui-1.92.7;$(SolutionDir)\src\luabrige;$(SolutionDir)\src\3rdlib\raygui-4.0\src;$(SolutionDir)\Raylib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\rlImGui-main;$(SolutionDir)\imgui;$(SolutionDir)\src\luabrige;$(SolutionDir)\src\3rdlib\raygui-4.0\src;$(SolutionDir)\Raylib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,7 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\engine\brigeImgui.cpp" />
-    <ClCompile Include="..\src\engine\entity.c" />
+    <ClCompile Include="..\src\engine\entityManager.c" />
     <ClCompile Include="..\src\engine\game.c" />
     <ClCompile Include="..\src\engine\graphics.c" />
     <ClCompile Include="..\src\engine\main.c" />

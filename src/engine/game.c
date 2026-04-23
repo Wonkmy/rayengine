@@ -13,6 +13,7 @@ void initGame() {
 	SetTargetFPS(FPS);
 
 	rlImGuiSetup(true);
+	ImGuiImpl_Init();
 }
 
 Font MyLoadFont()
@@ -34,6 +35,28 @@ Font MyLoadFont()
 	free(codepoints);
 
     return font;
+}
+
+Entity* createEntity(const char* name, const char* texturePath, Vector2 position) {
+	Entity entity;
+	entity.name = name;
+	entity.position = position;
+	char finalText[100];
+	snprintf(finalText, sizeof(finalText), "assets/sprites/%s", texturePath);
+	entity.texture = LoadTexture(finalText);
+	entity.boundingBox = (BoundingBox){ entity.position.x + entity.texture.width * GAME_SCALE,  entity.position.y + entity.texture.height * GAME_SCALE };
+	entity.active = 1;
+	entity.drawBoundingBox = false;
+	
+	for (int i = 0; i < MAX_ENTITYS; i++)
+	{
+		if (!objects[i].active)
+		{
+			objects[i] = entity;
+			return &objects[i];
+		}
+	}
+	return NULL;
 }
 
 void CameraShake(float intensity, float duration) {
@@ -62,17 +85,14 @@ void RunGame(Actor *actor) {
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
-			ClearBackground(SKYBLUE);
-#if defined(GAME_MODE_2D)
+			ClearBackground(GAME_BACKGROUND_COLOR);
 			actor->OnUpdate();
-			BeginMode2D(camera2d);
+			BeginMode2D(camera2d);// 开始2D模式
 				actor->OnDraw();
 			EndMode2D();
-			// 单独绘制GUI，确保它在所有2D元素之上
-			rlImGuiBegin();
+			rlImGuiBegin();// 绘制GUI
 				actor->OnGUI();
 			rlImGuiEnd();
-#endif
 		EndDrawing();
 	}
 	actor->OnDispose();

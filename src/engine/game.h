@@ -8,6 +8,9 @@
 #include <stdio.h>
 #include "rlImGui.h"
 
+
+void DrawNode(int index);
+
 typedef struct Actor {
 	void(*OnStart)();
 	void(*OnUpdate)();
@@ -19,16 +22,20 @@ typedef struct Actor {
 
 typedef struct Entity {
 	char* name;
+	int active;
 	Vector2 position;
 	Texture2D texture;
 	BoundingBox boundingBox;
+	bool drawBoundingBox;
 } Entity;
 
-void EntityOnStart();
-void EntityOnUpdate();
-void EntityOnDraw();
-void EntityOnGUI();
-void EntityOnDispose();
+Entity* createEntity(const char* name, const char* texturePath, Vector2 position);
+
+void EntityManagerOnStart();
+void EntityManagerOnUpdate();
+void EntityManagerOnDraw();
+void EntityManagerOnGUI();
+void EntityManagerOnDispose();
 
 // GAME 相关
 #define GAME_MODE_2D
@@ -38,6 +45,11 @@ void EntityOnDispose();
 #define GAME_SCALE 0.25f
 #define GAME_ROTATE 0.0f
 #define GAME_TITLE "MyGames"
+#define GAME_BACKGROUND_COLOR BLACK
+
+// Entity相关
+#define MAX_ENTITYS 100
+Entity objects[MAX_ENTITYS];
 
 // Camera相关
 #define CAMERA_ZOOM 1.0f
@@ -54,4 +66,7 @@ Font MyLoadFont();
 Camera2D camera2d;
 
 void CameraShake(float intensity, float duration);
+extern void ImGuiImpl_Init();
 extern void ImGuiImpl_DrawText(const char* name, int p_x, int p_y, const char* fmt,...);
+extern void ImGuiImpl_CraeteDockSpace();
+extern void ImGuiImpl_DrawHierarchy();

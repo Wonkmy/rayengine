@@ -164,7 +164,7 @@
     <ClCompile Include="..\src\engine\MeshRender.c">
       <Filter>源文件\engine\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\engine\entity.c">
+    <ClCompile Include="..\src\engine\entityManager.c">
       <Filter>源文件\engine\core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\engine\brigeImgui.cpp">
