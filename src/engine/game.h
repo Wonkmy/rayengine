@@ -7,6 +7,7 @@
 #include "MeshRender.h"
 #include <stdio.h>
 #include "rlImGui.h"
+#include "gamefuncs.h"
 
 
 void DrawNode(int index);
@@ -22,15 +23,17 @@ typedef struct Actor {
 
 typedef struct Entity {
 	char* name;
-	int active;
+	bool active;
 	Vector2 position;
 	Texture2D texture;
 	BoundingBox boundingBox;
 	bool drawBoundingBox;
+	Actor actor;
 } Entity;
 
-Entity* createEntity(const char* name, const char* texturePath, Vector2 position);
 
+Entity* createEntity(struct Entity** arr, int* count, const char* name, const char* texturePath, Vector2 position);
+void UpdateBoundingBox(Entity* entity);
 void EntityManagerOnStart();
 void EntityManagerOnUpdate();
 void EntityManagerOnDraw();
@@ -49,8 +52,8 @@ void EntityManagerOnDispose();
 
 // Entity相关
 #define MAX_ENTITYS 100
-Entity objects[MAX_ENTITYS];
-
+Entity* objects[MAX_ENTITYS];
+Entity* playerEntity;// 玩家实体
 // Camera相关
 #define CAMERA_ZOOM 1.0f
 
