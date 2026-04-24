@@ -1,7 +1,7 @@
 ﻿extern "C" {
 #include "raylib.h"
 #include "rlImGui.h"
-#include "game.h"
+//#include "game.h"
 }
 
 #include "imgui.h"
@@ -21,6 +21,7 @@ Node nodes[] = {
 int nodeCount = 4;
 
 int selectedId = -1; // 当前选中
+void DrawNode(int index);
 
 extern "C" void ImGuiImpl_Init()
 {

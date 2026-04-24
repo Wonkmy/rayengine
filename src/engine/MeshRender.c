@@ -18,8 +18,9 @@ void MeshRenderOnUpdate() {
 }
 void MeshRenderOnDraw() {
 	BeginMode3D(camera);
-		DrawModel(model, position, 1.0f, WHITE);
-		DrawGrid(20, 10.0f);
+		//DrawModel(model, position, 1.0f, WHITE);
+		//DrawGrid(20, 10.0f);
+		DrawTriangle((Vector2) { 0, 0}, (Vector2) { 0, 1}, (Vector2) { 1, 0}, RED);
 	EndMode3D();
 }
 void MeshRenderOnDispose() {

@@ -48,9 +48,6 @@
     <ClInclude Include="..\src\engine\MeshRender.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\engine\gamefuncs.h">
-      <Filter>头文件\Graphics</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\engine\graphics.c">

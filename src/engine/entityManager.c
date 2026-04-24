@@ -1,7 +1,8 @@
 ﻿#include "game.h"
-
 Texture2D texture;
-int count = 0;
+Entity* allEntitys = NULL;
+int counts = 0;
+
 void lerp(Vector2* start, Vector2* end, float t, Vector2* result) {
 	result->x = start->x + (end->x - start->x) * t;
 	result->y = start->y + (end->y - start->y) * t;
@@ -19,7 +20,7 @@ void updateNewPosition(Vector2* currentPosition, Vector2* targetPosition) {
 }
 
 void EntityManagerOnStart() {
-	playerEntity = createEntity(&objects, &count, "Player1", "f1.png", (Vector2) { GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f});
+	playerEntity = createEntity(&allEntitys, &counts, "Player1", "f1.png",(Vector2) { GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f});
 
 	playerEntity->actor.OnStart = playerEntity_OnStart;
 	playerEntity->actor.OnUpdate = playerEntity_OnUpdate;
@@ -27,25 +28,28 @@ void EntityManagerOnStart() {
 	playerEntity->actor.OnDispose = playerEntity_OnDispose;
 
 	camera2d.target = playerEntity->position;
+
+	enemyEntity = createEntity(&allEntitys, &counts, "Enemy1", "f2.png", (Vector2) { GetScreenWidth() / 2.0f + 100, GetScreenHeight() / 2.0f });
+
+	enemyEntity->actor.OnStart = enemyEntity_OnStart;
+	enemyEntity->actor.OnUpdate = enemyEntity_OnUpdate;
+	enemyEntity->actor.OnDraw = enemyEntity_OnDraw;
+	enemyEntity->actor.OnDispose = enemyEntity_OnDispose;
+	
 }
 void EntityManagerOnUpdate() {
-	for (int i = 0; i < count; i++) {
-		objects[i]->actor.OnUpdate();
+	for (int i = 0; i < counts; i++) {
+		if (!allEntitys[i].active) continue;
+		allEntitys[i].actor.OnUpdate();
 	}
 }
 
-//if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-//	objects[0].active = 0;
-//	// 移除第一个实体
-//	objects[0] = (Entity){ 0 };
-//}
-
 void EntityManagerOnDraw() {
 
-	for (int i = 0; i < count; i++)
+	for (int i = 0; i < counts; i++)
 	{
-		if (!objects[i]->active) continue;
-		objects[i]->actor.OnDraw();
+		if (!allEntitys[i].active) continue;
+		allEntitys[i].actor.OnDraw();
 	}
 }
 void EntityManagerOnGUI() {
@@ -61,10 +65,9 @@ void EntityManagerOnGUI() {
 	}*/
 }
 void EntityManagerOnDispose() {
-	for (int i = 0; i < count; i++) {
-		if (!objects[i]->active) continue;
-		objects[i]->actor.OnDispose();
-		UnloadTexture(objects[i]->texture);
-		objects[i] = NULL;
+	for (int i = 0; i < counts; i++) {
+		if (!allEntitys[i].active) continue;
+		allEntitys[i].actor.OnDispose();
+		UnloadTexture(allEntitys[i].texture);
 	}
 }

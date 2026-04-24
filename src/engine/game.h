@@ -1,16 +1,13 @@
 ﻿//#include "raylib.h"
-#include "raygui.h"
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "raygui.h"
 #include "lualib.h"
 #include "math.h"
 #include "mainlayer.h"
 #include "MeshRender.h"
-#include <stdio.h>
 #include "rlImGui.h"
-#include "gamefuncs.h"
-
-
-void DrawNode(int index);
 
 typedef struct Actor {
 	void(*OnStart)();
@@ -34,11 +31,24 @@ typedef struct Entity {
 
 Entity* createEntity(struct Entity** arr, int* count, const char* name, const char* texturePath, Vector2 position);
 void UpdateBoundingBox(Entity* entity);
+void RotateBoundingBox(Entity* _entity,float angle);
 void EntityManagerOnStart();
 void EntityManagerOnUpdate();
 void EntityManagerOnDraw();
 void EntityManagerOnGUI();
 void EntityManagerOnDispose();
+
+// Player相关
+void playerEntity_OnStart();
+void playerEntity_OnUpdate();
+void playerEntity_OnDraw();
+void playerEntity_OnDispose();
+
+// Enemy相关
+void enemyEntity_OnStart();
+void enemyEntity_OnUpdate();
+void enemyEntity_OnDraw();
+void enemyEntity_OnDispose();
 
 // GAME 相关
 #define GAME_MODE_2D
@@ -51,9 +61,11 @@ void EntityManagerOnDispose();
 #define GAME_BACKGROUND_COLOR BLACK
 
 // Entity相关
-#define MAX_ENTITYS 100
-Entity* objects[MAX_ENTITYS];
+extern Entity* allEntitys;
+extern int counts;
 Entity* playerEntity;// 玩家实体
+Entity* enemyEntity;// 敌人实体
+
 // Camera相关
 #define CAMERA_ZOOM 1.0f
 
@@ -73,3 +85,7 @@ extern void ImGuiImpl_Init();
 extern void ImGuiImpl_DrawText(const char* name, int p_x, int p_y, const char* fmt,...);
 extern void ImGuiImpl_CraeteDockSpace();
 extern void ImGuiImpl_DrawHierarchy();
+
+// 工具函数定义
+Vector2 rotate_vector(Vector2 v, Vector2 center, double angle_deg);
+void rotate_points_batch(Vector2 points[], int count, Vector2 center, double angle_deg);

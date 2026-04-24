@@ -132,7 +132,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\src\engine\game.h" />
-    <ClInclude Include="..\src\engine\gamefuncs.h" />
     <ClInclude Include="..\src\engine\graphics.h" />
     <ClInclude Include="..\src\engine\mainlayer.h" />
     <ClInclude Include="..\src\engine\MeshRender.h" />

@@ -11,7 +11,6 @@ void initGame() {
 	camera2d.rotation = GAME_ROTATE;
 	camera2d.zoom = CAMERA_ZOOM;
 	SetTargetFPS(FPS);
-
 	rlImGuiSetup(true);
 	ImGuiImpl_Init();
 }
@@ -37,35 +36,40 @@ Font MyLoadFont()
     return font;
 }
 
-Entity* createEntity(struct Entity** arr, int* count, const char* name, const char* texturePath, Vector2 position) {
-    Entity* entity = (Entity*)malloc(sizeof(Entity));
-    if (entity == NULL) return NULL; // 防止空指针引用
+Entity* createEntity(struct Entity** arr, int* counts, const char* name, const char* texturePath, Vector2 position) {
+	struct Entity* newArr = (struct Entity*)realloc(*arr, sizeof(struct Entity) * (*counts + 1));
+	if (newArr == NULL) {
+		return NULL;
+	}
+	*arr = newArr;
 
-    entity->name = (char*)name;
-    entity->position = position;
-    char finalText[100];
-    snprintf(finalText, sizeof(finalText), "assets/sprites/%s", texturePath);
-    entity->texture = LoadTexture(finalText);
-    entity->boundingBox = (BoundingBox){ entity->position.x + entity->texture.width * GAME_SCALE,  entity->position.y + entity->texture.height * GAME_SCALE };
-    entity->active = true;
-    entity->drawBoundingBox = false;
-    entity->actor = (Actor){ 0 };
+	Entity* entity = &((*arr)[*counts]);
 
-    struct Entity* newArr = (struct Entity*)realloc(*arr, sizeof(struct Entity) * (*count + 1));
-    if (newArr == NULL) {
-        free(entity);
-        return NULL;
-    }
-    *arr = newArr;
+	
+	entity->name = (char*)malloc(strlen(name) + 1);
+	strcpy(entity->name, name);
 
-    (*arr)[*count] = *entity;
+	entity->position = position;
 
-    (*count)++;
+	char finalText[100];
+	snprintf(finalText, sizeof(finalText), "assets/sprites/%s", texturePath);
 
-    free(entity);
+	entity->texture = LoadTexture(finalText);
 
-    return &((*arr)[*count - 1]);
+	entity->boundingBox = (BoundingBox){
+		entity->position.x + entity->texture.width * GAME_SCALE,
+		entity->position.y + entity->texture.height * GAME_SCALE
+	};
+
+	entity->active = true;
+	entity->drawBoundingBox = false;
+	entity->actor = (Actor){ 0 };
+
+	(*counts)++;
+
+	return entity;
 }
+
 
 void CameraShake(float intensity, float duration) {
 	float elapsed = 0.0f;
@@ -90,6 +94,7 @@ Actor NewGame() {
 }
 void RunGame(Actor *actor) {
 	actor->OnStart();
+	
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
@@ -104,5 +109,6 @@ void RunGame(Actor *actor) {
 		EndDrawing();
 	}
 	actor->OnDispose();
+	
 	CloseWindow();
 }
