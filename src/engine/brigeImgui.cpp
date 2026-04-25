@@ -1,16 +1,6 @@
-﻿extern "C" {
-#include "raylib.h"
-#include "rlImGui.h"
-//#include "game.h"
-}
-
+﻿
 #include "imgui.h"
-
-typedef struct Node {
-    const char* name;
-    int id;
-    int parent; // 父节点索引，-1表示根
-} Node;
+#include "brigeImgui.h"
 
 Node nodes[] = {
     {"Root", 0, -1},
@@ -21,15 +11,15 @@ Node nodes[] = {
 int nodeCount = 4;
 
 int selectedId = -1; // 当前选中
-void DrawNode(int index);
-extern "C" void ImGuiImpl_Init()
+
+void ImGuiImpl_Init()
 {
     ImGuiIO& io = ImGui::GetIO();
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;   // 开启Dock
     io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; // 可选：多窗口（拖出主窗口）
 }
 
-extern "C" void ImGuiImpl_DrawText(const char* name,int p_x,int p_y, const char* fmt,...)
+void ImGuiImpl_DrawText(const char* name,int p_x,int p_y, const char* fmt,...)
 {
     ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoMove;
 	ImGui::SetNextWindowSize(ImVec2(300, 300), ImGuiCond_Always);
@@ -42,7 +32,7 @@ extern "C" void ImGuiImpl_DrawText(const char* name,int p_x,int p_y, const char*
     ImGui::End();
 }
 
-extern "C" void ImGuiImpl_CraeteDockSpace()
+void ImGuiImpl_CraeteDockSpace()
 {
     ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking;
 
@@ -68,7 +58,7 @@ extern "C" void ImGuiImpl_CraeteDockSpace()
 
 
 
-extern "C" void ImGuiImpl_DrawHierarchy()
+void ImGuiImpl_DrawHierarchy()
 {
     ImGui::Begin("Hierarchy");
 
@@ -136,7 +126,7 @@ void DrawNode(int index)
 }
 
 // 这个函数用来绘制引擎中常用的Scene窗口，包含场景视图、属性编辑器等
-extern "C" void ImGuiImpl_DrawSceneView()
+void ImGuiImpl_DrawSceneView()
 {
     ImGui::SetNextWindowSize(ImVec2(500, 400), ImGuiCond_Always);
     ImGui::Begin("Scene");
@@ -144,6 +134,6 @@ extern "C" void ImGuiImpl_DrawSceneView()
     ImGui::End();
 }
 
-extern "C" void ImGuiImpl_DrawGameView() {
+void ImGuiImpl_DrawGameView() {
 
 }

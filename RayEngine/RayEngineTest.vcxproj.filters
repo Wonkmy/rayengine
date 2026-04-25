@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="源文件\luabrige">
-      <UniqueIdentifier>{8d1451a4-4f73-4efe-a64b-717137eccd0c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\Graphics">
       <UniqueIdentifier>{93c8d0e6-6058-4ea7-a93e-47129f6c5247}</UniqueIdentifier>
     </Filter>
@@ -51,104 +48,14 @@
     <ClInclude Include="..\src\engine\PlayerEntity.h">
       <Filter>头文件\Entitys</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\engine\entityManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\engine\brigeImgui.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\luabrige\lapi.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lauxlib.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lbaselib.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lcode.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lcorolib.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lctype.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\ldblib.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\ldebug.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\ldo.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\ldump.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lfunc.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lgc.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\linit.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\liolib.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\llex.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lmathlib.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lmem.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\loadlib.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lobject.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lopcodes.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\loslib.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lparser.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lstate.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lstring.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lstrlib.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\ltable.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\ltablib.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\ltm.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lundump.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lutf8lib.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lvm.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\luabrige\lzio.c">
-      <Filter>源文件\luabrige</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\engine\brigeImgui.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -162,9 +69,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\src\engine\graphics.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\engine\gamefuncs.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\src\engine\game.cpp">

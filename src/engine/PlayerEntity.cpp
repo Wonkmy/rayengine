@@ -1,4 +1,5 @@
 ﻿#include "PlayerEntity.h"
+#include "raylib.h"
 void UpdateBoundingBox(Entity* entity) {
 	Vector3 min = Vector3{ entity->position.x - entity->texture.width / 2 * GAME_SCALE, entity->position.y - entity->texture.height / 2 * GAME_SCALE };
 	Vector3 max = Vector3{ entity->position.x + entity->texture.width / 2 * GAME_SCALE,  entity->position.y + entity->texture.height / 2 * GAME_SCALE };
@@ -9,8 +10,7 @@ void UpdateBoundingBox(Entity* entity) {
 //	currentPosition->x = targetPosition->x;
 //	currentPosition->y = targetPosition->y;
 //}
-PlayerEntity::PlayerEntity(string _name,const char* _texPath) : Entity(_name, _texPath) {
-	this->name = _name;
+PlayerEntity::PlayerEntity() {
 }
 
 void PlayerEntity::OnStart() {

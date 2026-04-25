@@ -3,12 +3,13 @@
 #define PlayerEntity_H
 #include "Entity.h"
 #include <string>
+#include "game.h"
 using namespace std;
 
 class PlayerEntity : public Entity
 {
 public:
-    explicit PlayerEntity(string _name, const char* _texPath);
+    PlayerEntity();
     ~PlayerEntity();
     void OnStart() override;
     void OnUpdate() override;

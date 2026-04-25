@@ -18,36 +18,102 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\luabrige\lapi.c" />
+    <ClCompile Include="..\src\luabrige\lauxlib.c" />
+    <ClCompile Include="..\src\luabrige\lbaselib.c" />
+    <ClCompile Include="..\src\luabrige\lcode.c" />
+    <ClCompile Include="..\src\luabrige\lcorolib.c" />
+    <ClCompile Include="..\src\luabrige\lctype.c" />
+    <ClCompile Include="..\src\luabrige\ldblib.c" />
+    <ClCompile Include="..\src\luabrige\ldebug.c" />
+    <ClCompile Include="..\src\luabrige\ldo.c" />
+    <ClCompile Include="..\src\luabrige\ldump.c" />
+    <ClCompile Include="..\src\luabrige\lfunc.c" />
+    <ClCompile Include="..\src\luabrige\lgc.c" />
+    <ClCompile Include="..\src\luabrige\linit.c" />
+    <ClCompile Include="..\src\luabrige\liolib.c" />
+    <ClCompile Include="..\src\luabrige\llex.c" />
+    <ClCompile Include="..\src\luabrige\lmathlib.c" />
+    <ClCompile Include="..\src\luabrige\lmem.c" />
+    <ClCompile Include="..\src\luabrige\loadlib.c" />
+    <ClCompile Include="..\src\luabrige\lobject.c" />
+    <ClCompile Include="..\src\luabrige\lopcodes.c" />
+    <ClCompile Include="..\src\luabrige\loslib.c" />
+    <ClCompile Include="..\src\luabrige\lparser.c" />
+    <ClCompile Include="..\src\luabrige\lstate.c" />
+    <ClCompile Include="..\src\luabrige\lstring.c" />
+    <ClCompile Include="..\src\luabrige\lstrlib.c" />
+    <ClCompile Include="..\src\luabrige\ltable.c" />
+    <ClCompile Include="..\src\luabrige\ltablib.c" />
+    <ClCompile Include="..\src\luabrige\ltm.c" />
+    <ClCompile Include="..\src\luabrige\luac.c" />
+    <ClCompile Include="..\src\luabrige\lundump.c" />
+    <ClCompile Include="..\src\luabrige\lutf8lib.c" />
+    <ClCompile Include="..\src\luabrige\lvm.c" />
+    <ClCompile Include="..\src\luabrige\lzio.c" />
+    <ClCompile Include="..\src\luabrige\wonkmy.c" />
+    <ClCompile Include="..\src\luabrige\yxlib.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\luabrige\lapi.h" />
+    <ClInclude Include="..\src\luabrige\lauxlib.h" />
+    <ClInclude Include="..\src\luabrige\lcode.h" />
+    <ClInclude Include="..\src\luabrige\lctype.h" />
+    <ClInclude Include="..\src\luabrige\ldebug.h" />
+    <ClInclude Include="..\src\luabrige\ldo.h" />
+    <ClInclude Include="..\src\luabrige\lfunc.h" />
+    <ClInclude Include="..\src\luabrige\lgc.h" />
+    <ClInclude Include="..\src\luabrige\ljumptab.h" />
+    <ClInclude Include="..\src\luabrige\llex.h" />
+    <ClInclude Include="..\src\luabrige\llimits.h" />
+    <ClInclude Include="..\src\luabrige\lmem.h" />
+    <ClInclude Include="..\src\luabrige\lobject.h" />
+    <ClInclude Include="..\src\luabrige\lopcodes.h" />
+    <ClInclude Include="..\src\luabrige\lopnames.h" />
+    <ClInclude Include="..\src\luabrige\lparser.h" />
+    <ClInclude Include="..\src\luabrige\lprefix.h" />
+    <ClInclude Include="..\src\luabrige\lstate.h" />
+    <ClInclude Include="..\src\luabrige\lstring.h" />
+    <ClInclude Include="..\src\luabrige\ltable.h" />
+    <ClInclude Include="..\src\luabrige\ltm.h" />
+    <ClInclude Include="..\src\luabrige\lua.hpp" />
+    <ClInclude Include="..\src\luabrige\luaconf.h" />
+    <ClInclude Include="..\src\luabrige\lualib.h" />
+    <ClInclude Include="..\src\luabrige\lundump.h" />
+    <ClInclude Include="..\src\luabrige\lvm.h" />
+    <ClInclude Include="..\src\luabrige\lzio.h" />
+    <ClInclude Include="..\src\luabrige\yxlib.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{aac71ba1-8a40-4ab6-a0a2-8310839bff24}</ProjectGuid>
-    <RootNamespace>RayEngineTest</RootNamespace>
+    <ProjectGuid>{406a60f0-b526-4268-9f63-786abf909d11}</ProjectGuid>
+    <RootNamespace>lualib</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>RayEngine</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -72,18 +138,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>..\out;$(LibraryPath)</LibraryPath>
     <OutDir>..\out</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>
+      </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -93,27 +161,31 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>
+      </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\rlImGui-main;$(SolutionDir)\imgui;$(SolutionDir)\src\luabrige;$(SolutionDir)\src\3rdlib\raygui-4.0\src;$(SolutionDir)\Raylib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>J:\C\RayEngineTest\src\luabrige;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>
+      </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>raylib.lib;imguilib.lib;lualib.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\;$(SolutionDir)\out;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -122,37 +194,17 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>
+      </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\src\engine\brigeImgui.h" />
-    <ClInclude Include="..\src\engine\Entity.h" />
-    <ClInclude Include="..\src\engine\entityManager.h" />
-    <ClInclude Include="..\src\engine\game.h" />
-    <ClInclude Include="..\src\engine\graphics.h" />
-    <ClInclude Include="..\src\engine\mainlayer.h" />
-    <ClInclude Include="..\src\engine\MeshRender.h" />
-    <ClInclude Include="..\src\engine\PlayerEntity.h" />
-    <ClInclude Include="..\src\engine\rpng.h" />
-    <ClInclude Include="..\src\engine\stb_image_write.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\src\engine\brigeImgui.cpp" />
-    <ClCompile Include="..\src\engine\Entity.cpp" />
-    <ClCompile Include="..\src\engine\entityManager.cpp" />
-    <ClCompile Include="..\src\engine\game.cpp" />
-    <ClCompile Include="..\src\engine\graphics.cpp" />
-    <ClCompile Include="..\src\engine\main.cpp" />
-    <ClCompile Include="..\src\engine\mainlayer.cpp" />
-    <ClCompile Include="..\src\engine\MeshRender.cpp" />
-    <ClCompile Include="..\src\engine\PlayerEntity.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

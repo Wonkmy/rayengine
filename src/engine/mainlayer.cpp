@@ -1,5 +1,5 @@
 ﻿//游戏主场景具体实现代码
-#include "game.h"
+#include "entityManager.h"
 void OnStart() {
 	EntityManagerOnStart();
 }

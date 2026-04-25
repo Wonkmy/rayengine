@@ -3,12 +3,13 @@
 #include <string>
 #include "raylib.h" 
 #include <vector>
+#include <memory>
 
 
 using namespace std;
 class Entity {
 public:
-	explicit Entity(string _name, const char* path);
+	explicit Entity();
 	virtual ~Entity();
 	string name;
 	int id;
@@ -25,5 +26,5 @@ public:
 	virtual void OnDispose();
 };
 // Entity相关
-std::vector<Entity> entitys; // 全局实体列表
+extern std::vector<std::unique_ptr<Entity>> entitys;
 #endif // ENTITY_H

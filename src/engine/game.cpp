@@ -1,7 +1,7 @@
 ﻿#define RAYGUI_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "game.h"
-
+Camera2D camera2d;
 void initGame() {
 	// 初始化游戏相关资源
 	// 初始化窗口
@@ -64,7 +64,7 @@ void RunGame(Actor *actor) {
 	{
 		BeginDrawing();
 			ClearBackground(GAME_BACKGROUND_COLOR);
-			actor->OnUpdate();
+				actor->OnUpdate();
 				BeginMode2D(camera2d);// 开始2D模式
 					actor->OnDraw();
 				EndMode2D();// 这里会增加一次DrawCall
