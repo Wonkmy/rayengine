@@ -131,23 +131,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\engine\Entity.h" />
     <ClInclude Include="..\src\engine\game.h" />
     <ClInclude Include="..\src\engine\graphics.h" />
     <ClInclude Include="..\src\engine\mainlayer.h" />
     <ClInclude Include="..\src\engine\MeshRender.h" />
+    <ClInclude Include="..\src\engine\PlayerEntity.h" />
     <ClInclude Include="..\src\engine\rpng.h" />
     <ClInclude Include="..\src\engine\stb_image_write.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\engine\brigeImgui.cpp" />
-    <ClCompile Include="..\src\engine\entityManager.c" />
-    <ClCompile Include="..\src\engine\game.c" />
-    <ClCompile Include="..\src\engine\gamefuncs.c" />
-    <ClCompile Include="..\src\engine\graphics.c" />
-    <ClCompile Include="..\src\engine\main.c" />
-    <ClCompile Include="..\src\engine\mainlayer.c" />
-    <ClCompile Include="..\src\engine\MeshRender.c" />
-    <ClCompile Include="..\src\engine\software_3d_core.c" />
+    <ClCompile Include="..\src\engine\Entity.cpp" />
+    <ClCompile Include="..\src\engine\entityManager.cpp" />
+    <ClCompile Include="..\src\engine\game.cpp" />
+    <ClCompile Include="..\src\engine\gamefuncs.cpp" />
+    <ClCompile Include="..\src\engine\graphics.cpp" />
+    <ClCompile Include="..\src\engine\main.cpp" />
+    <ClCompile Include="..\src\engine\mainlayer.cpp" />
+    <ClCompile Include="..\src\engine\MeshRender.cpp" />
+    <ClCompile Include="..\src\engine\PlayerEntity.cpp" />
     <ClCompile Include="..\src\luabrige\lapi.c" />
     <ClCompile Include="..\src\luabrige\lauxlib.c" />
     <ClCompile Include="..\src\luabrige\lbaselib.c" />

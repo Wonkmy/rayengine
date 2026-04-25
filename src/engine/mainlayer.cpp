@@ -11,7 +11,6 @@ void OnDraw() {
 }
 void OnGUI() {
 	EntityManagerOnGUI();
-	DrawFPS(GetScreenWidth() - 100, 10);
 }
 void OnDispose() {
 	EntityManagerOnDispose();

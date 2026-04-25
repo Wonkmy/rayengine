@@ -1,4 +1,4 @@
-/**********************************************************************************************
+﻿/**********************************************************************************************
 *
 *   rlgl v6.0 - A multi-OpenGL abstraction layer with an immediate-mode style API
 *
@@ -108,7 +108,7 @@
 #define RLGL_H
 
 #define RLGL_VERSION  "6.0"
-
+static int RLGL_DrawCallCounter = 0;
 // Function specifiers in case library is build/used as a shared library
 // NOTE: Microsoft specifiers to tell compiler that symbols are imported/exported from a .dll
 // NOTE: visibility(default) attribute makes symbols "visible" when compiled with -fvisibility=hidden
@@ -664,6 +664,7 @@ RLAPI unsigned int rlGetActiveFramebuffer(void);        // Get the currently act
 RLAPI void rlActiveDrawBuffers(int count);              // Activate multiple draw color buffers
 RLAPI void rlBlitFramebuffer(int srcX, int srcY, int srcWidth, int srcHeight, int dstX, int dstY, int dstWidth, int dstHeight, int bufferMask); // Blit active framebuffer to main framebuffer
 RLAPI void rlBindFramebuffer(unsigned int target, unsigned int framebuffer); // Bind framebuffer (FBO)
+RLAPI int rlGetDrawCallCounter(void);                   // Get Draw calls counter for VR batch drawing (wireframe or points), 0 for default internal render batch
 
 // General render state
 RLAPI void rlEnableColorBlend(void);                    // Enable color blending
@@ -2983,6 +2984,7 @@ void rlUnloadRenderBatch(rlRenderBatch batch)
 void rlDrawRenderBatch(rlRenderBatch *batch)
 {
 #if defined(GRAPHICS_API_OPENGL_33) || defined(GRAPHICS_API_OPENGL_ES2)
+    RLGL_DrawCallCounter = 0;
     // Update batch vertex buffers
     //------------------------------------------------------------------------------------------------------------
     // NOTE: If there is not vertex data, buffers doesn't need to be updated (vertexCount > 0)
@@ -3137,6 +3139,8 @@ void rlDrawRenderBatch(rlRenderBatch *batch)
                 // Bind current draw call texture, activated as GL_TEXTURE0 and bound to sampler2D texture0 by default
                 glBindTexture(GL_TEXTURE_2D, batch->draws[i].textureId);
 
+                RLGL_DrawCallCounter += 1;
+
                 if ((batch->draws[i].mode == RL_LINES) || (batch->draws[i].mode == RL_TRIANGLES)) glDrawArrays(batch->draws[i].mode, vertexOffset, batch->draws[i].vertexCount);
                 else
                 {
@@ -3204,7 +3208,10 @@ void rlDrawRenderBatch(rlRenderBatch *batch)
     if (batch->currentBuffer >= batch->bufferCount) batch->currentBuffer = 0;
 #endif
 }
-
+int rlGetDrawCallCounter(void)
+{
+    return RLGL_DrawCallCounter;
+}
 // Set the active render batch for rlgl
 void rlSetRenderBatchActive(rlRenderBatch *batch)
 {

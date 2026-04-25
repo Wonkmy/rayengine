@@ -22,7 +22,6 @@ int nodeCount = 4;
 
 int selectedId = -1; // 当前选中
 void DrawNode(int index);
-
 extern "C" void ImGuiImpl_Init()
 {
     ImGuiIO& io = ImGui::GetIO();
@@ -32,9 +31,9 @@ extern "C" void ImGuiImpl_Init()
 
 extern "C" void ImGuiImpl_DrawText(const char* name,int p_x,int p_y, const char* fmt,...)
 {
+    ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoMove;
 	ImGui::SetNextWindowSize(ImVec2(300, 300), ImGuiCond_Always);
-	//ImGui::SetNextWindowPos(ImVec2(0, 0), ImGuiCond_Always);
-    ImGui::Begin(name);
+    ImGui::Begin(name,NULL, window_flags);
     ImGui::SetCursorPos(ImVec2(p_x, p_y));
     ImGui::Text(fmt);
     if (selectedId != -1) {
@@ -134,4 +133,17 @@ void DrawNode(int index)
 
         ImGui::TreePop();
     }
+}
+
+// 这个函数用来绘制引擎中常用的Scene窗口，包含场景视图、属性编辑器等
+extern "C" void ImGuiImpl_DrawSceneView()
+{
+    ImGui::SetNextWindowSize(ImVec2(500, 400), ImGuiCond_Always);
+    ImGui::Begin("Scene");
+    ImGui::Text("Scene View");
+    ImGui::End();
+}
+
+extern "C" void ImGuiImpl_DrawGameView() {
+
 }

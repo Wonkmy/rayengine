@@ -22,7 +22,7 @@ Font MyLoadFont()
 	int end = 0x9FFF; // 中文结束
 
 	int total = end - start + 1;
-	int* codepoints = malloc(sizeof(int) * total);
+	int* codepoints = (int*)malloc(sizeof(int) * total);
 
 	for (int i = 0; i < total; i++)
 	{
@@ -35,41 +35,6 @@ Font MyLoadFont()
 
     return font;
 }
-
-Entity* createEntity(struct Entity** arr, int* counts, const char* name, const char* texturePath, Vector2 position) {
-	struct Entity* newArr = (struct Entity*)realloc(*arr, sizeof(struct Entity) * (*counts + 1));
-	if (newArr == NULL) {
-		return NULL;
-	}
-	*arr = newArr;
-
-	Entity* entity = &((*arr)[*counts]);
-
-	
-	entity->name = (char*)malloc(strlen(name) + 1);
-	strcpy(entity->name, name);
-
-	entity->position = position;
-
-	char finalText[100];
-	snprintf(finalText, sizeof(finalText), "assets/sprites/%s", texturePath);
-
-	entity->texture = LoadTexture(finalText);
-
-	entity->boundingBox = (BoundingBox){
-		entity->position.x + entity->texture.width * GAME_SCALE,
-		entity->position.y + entity->texture.height * GAME_SCALE
-	};
-
-	entity->active = true;
-	entity->drawBoundingBox = false;
-	entity->actor = (Actor){ 0 };
-
-	(*counts)++;
-
-	return entity;
-}
-
 
 void CameraShake(float intensity, float duration) {
 	float elapsed = 0.0f;
@@ -100,12 +65,14 @@ void RunGame(Actor *actor) {
 		BeginDrawing();
 			ClearBackground(GAME_BACKGROUND_COLOR);
 			actor->OnUpdate();
-			BeginMode2D(camera2d);// 开始2D模式
-				actor->OnDraw();
-			EndMode2D();
-			rlImGuiBegin();// 绘制GUI
-				actor->OnGUI();
-			rlImGuiEnd();
+				BeginMode2D(camera2d);// 开始2D模式
+					actor->OnDraw();
+				EndMode2D();// 这里会增加一次DrawCall
+				DrawText(TextFormat("DrawCalls: %d", rlGetDrawCallCounter()), 10, 40, 20, GREEN);
+				DrawFPS(GetScreenWidth() - 100, 10);
+				rlImGuiBegin();
+					actor->OnGUI();
+				rlImGuiEnd();
 		EndDrawing();
 	}
 	actor->OnDispose();

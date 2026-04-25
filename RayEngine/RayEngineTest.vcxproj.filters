@@ -19,14 +19,11 @@
     <Filter Include="头文件\Graphics">
       <UniqueIdentifier>{93c8d0e6-6058-4ea7-a93e-47129f6c5247}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\engine">
-      <UniqueIdentifier>{2f394fdd-f2ab-423c-8331-818fc58d733f}</UniqueIdentifier>
+    <Filter Include="头文件\Entitys">
+      <UniqueIdentifier>{e24cfd16-a01d-4c41-be53-bc92aef6e531}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\engine\Graphics">
-      <UniqueIdentifier>{1e3cb468-bff6-49bb-b343-f5216e0cc951}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\engine\core">
-      <UniqueIdentifier>{fe686118-6f0e-4239-a5b1-5550213ab28f}</UniqueIdentifier>
+    <Filter Include="源文件\Entitys">
+      <UniqueIdentifier>{542dc51c-2a2b-4c89-890b-8dddce979f06}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,11 +45,14 @@
     <ClInclude Include="..\src\engine\MeshRender.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\engine\Entity.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\engine\PlayerEntity.h">
+      <Filter>头文件\Entitys</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\engine\graphics.c">
-      <Filter>源文件\engine\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\luabrige\lapi.c">
       <Filter>源文件\luabrige</Filter>
     </ClCompile>
@@ -149,29 +149,35 @@
     <ClCompile Include="..\src\luabrige\lzio.c">
       <Filter>源文件\luabrige</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\engine\software_3d_core.c">
-      <Filter>源文件\engine</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\engine\game.c">
-      <Filter>源文件\engine\core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\engine\mainlayer.c">
-      <Filter>源文件\engine\core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\engine\main.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\engine\MeshRender.c">
-      <Filter>源文件\engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\engine\entityManager.c">
-      <Filter>源文件\engine\core</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\engine\brigeImgui.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\engine\gamefuncs.c">
-      <Filter>源文件\engine\core</Filter>
+    <ClCompile Include="..\src\engine\MeshRender.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\mainlayer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\graphics.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\gamefuncs.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\game.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\entityManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\Entity.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\PlayerEntity.cpp">
+      <Filter>源文件\Entitys</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
