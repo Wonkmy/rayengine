@@ -19,7 +19,7 @@ void ImGuiImpl_Init()
     io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; // 可选：多窗口（拖出主窗口）
 }
 
-void ImGuiImpl_DrawText(const char* name,int p_x,int p_y, const char* fmt,...)
+void ImGuiImpl_DrawText(const char* name,float p_x, float p_y, const char* fmt,...)
 {
     ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoMove;
 	ImGui::SetNextWindowSize(ImVec2(300, 300), ImGuiCond_Always);

@@ -76,6 +76,5 @@ void RunGame(Actor *actor) {
 		EndDrawing();
 	}
 	actor->OnDispose();
-	
 	CloseWindow();
 }

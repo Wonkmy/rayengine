@@ -1,15 +1,15 @@
-#pragma once
+ï»¿#pragma once
 #ifndef BRIGE_IMPL_API
 #define BRIGE_IMPL_API
 
 typedef struct Node {
     const char* name;
     int id;
-    int parent; // ¸¸½ÚµãË÷Òý£¬-1±íÊ¾¸ù
+    int parent; // çˆ¶èŠ‚ç‚¹ç´¢å¼•ï¼Œ-1è¡¨ç¤ºæ ¹
 } Node;
 void DrawNode(int index);
 void ImGuiImpl_Init();
-void ImGuiImpl_DrawText(const char* name, int p_x, int p_y, const char* fmt, ...);
+void ImGuiImpl_DrawText(const char* name, float p_x, float p_y, const char* fmt, ...);
 void ImGuiImpl_CraeteDockSpace();
 void ImGuiImpl_DrawHierarchy();
 void DrawNode(int index);
