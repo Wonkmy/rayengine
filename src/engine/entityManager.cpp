@@ -1,14 +1,16 @@
 ﻿#include "PlayerEntity.h"
 std::vector<std::unique_ptr<Entity>> entitys;
+std::vector<std::unique_ptr<TextureRegister>> allTexturePool;
+
+int globalEntityId = 0;// 全局实体ID计数器
+int globalResetId = 0;// 全局资源ID计数器
 void EntityManagerOnStart() {
-	std::string playerName = "Player1";
-	const char* playerTexturePath = "assets/sprites/f1.png";
 	PlayerEntity* playerEntity = new PlayerEntity();
-	playerEntity->name = playerName;
-	playerEntity->texture = LoadTexture(playerTexturePath);
-	playerEntity->OnStart();
-	//entitys.emplace_back(playerEntity);
-	entitys.emplace_back(std::make_unique<PlayerEntity>());
+	CreateEntity("Player1", PlayerTexture, PlayerEntityTexturePath1, playerEntity);
+
+	PlayerEntity* playerEntity1 = new PlayerEntity();
+	CreateEntity("Player2", PlayerTexture, PlayerEntityTexturePath2, playerEntity1);
+	playerEntity1->position = Vector2{ 0.0f, 100.0f };
 }
 void EntityManagerOnUpdate() {
     for (int i = 0; i < entitys.size(); i++) {
@@ -44,12 +46,123 @@ void EntityManagerOnGUI() {
 //	//ImGuiImpl_DrawSceneView();
 }
 void EntityManagerOnDispose() {
+	// 销毁所有实体
     for (int i = 0; i < entitys.size(); ) {
         if (entitys[i]->active) {
             entitys[i]->OnDispose();
-        }
+			// 从entitys中移除已销毁的实体
+			entitys.erase(entitys.begin() + i);
+		}
     }
+	entitys.clear();
+	// 清空全局纹理池
+	for (int i = 0; i < allTexturePool.size(); i++) {
+		UnloadTexture(allTexturePool[i]->texture);
+	}
+	allTexturePool.clear();
 }
+void CreateEntity(const char* _name, int resid, const char* _texturePath, Entity* _entity) {
+	std::string playerName = _name;
+	const char* playerTexturePath = _texturePath;
+	Texture2D tex = LoadTextureToPool(resid, _texturePath);
+	_entity->id = globalEntityId++;
+	_entity->name = playerName;
+	_entity->texture = tex;
+	_entity->OnStart();
+	entitys.emplace_back(_entity);
+}
+void CreateEntity(const char* _name, const char* _texturePath, Entity* _entity) {
+	std::string playerName = _name;
+	const char* playerTexturePath = _texturePath;
+	
+	Texture2D tex = LoadTexture(_texturePath);
+	_entity->id = globalEntityId++;
+	_entity->name = playerName;
+	_entity->texture = tex;
+	_entity->OnStart();
+	entitys.emplace_back(_entity);
+}
+void RemoveEntity(int id) {
+	// 第一种方式
+	//for (int i = 0; i < entitys.size(); i++) {
+	//	if (entitys[i]->id == id) {
+	//		entitys[i]->id = -1; // 标记为已销毁
+	//		entitys[i]->OnDispose();
+	//		entitys.erase(entitys.begin() + i);
+	//		break;
+	//	}
+	//}
+
+	// 第二种方式
+	entitys.erase(
+		std::remove_if(entitys.begin(), entitys.end(),
+			[id](const std::unique_ptr<Entity>& e) {
+				if (e->id == id) {
+					e->OnDispose();
+					return true;
+				}
+				return false;
+			}),
+		entitys.end()
+	);
+
+	// 第三种方式
+	//for (auto it = entitys.begin(); it != entitys.end(); ++it) {
+	//	if ((*it)->id == id) {
+	//		(*it)->OnDispose(); // 清理
+	//		entitys.erase(it);  // 删除
+	//		break;
+	//	}
+	//}
+
+}
+Entity* GetEntityById(int id) {
+	if(entitys.size() > 0){
+		for (int i = 0; i < entitys.size(); i++)
+		{
+			if (entitys[i]->id == id) {
+				return entitys[i].get();
+			}
+		}
+	}
+}
+
+bool CheckEntityCollision(int id1, int id2) {
+	auto entity1 = GetEntityById(id1);
+	auto entity2 = GetEntityById(id2);
+	if (entity1 == nullptr || entity2 == nullptr) {
+		return false; // 如果任一实体不存在，返回false
+	}
+	return CheckCollisionBoxes(entity1->boundingBox, entity2->boundingBox);
+}
+
+TextureRegister* GetTextureById(int id) {
+	if (allTexturePool.size() > 0) {
+		for (int i = 0; i < allTexturePool.size(); i++)
+		{
+			if (allTexturePool[i]->id == id) {
+				return allTexturePool[i].get();
+			}
+		}
+	}
+}
+Texture2D LoadTextureToPool(int id, const char* texturePath) {
+	if (allTexturePool.size() > 0) {
+		for (int i = 0; i < allTexturePool.size(); i++) {
+			if (allTexturePool[i]->id == id) {
+				return allTexturePool[i]->texture;
+			}
+		}
+	}
+
+	// 如果allTexturePool中不存在相同id的纹理，则加载并添加
+	Texture2D tex = LoadTexture(texturePath);
+	// 将纹理添加到全局纹理池中
+	TextureRegister* newTextureRegister = new TextureRegister{ id, tex };
+	allTexturePool.emplace_back(newTextureRegister);
+	return tex;
+}
+
 
 // **************************工具函数**************************
 #ifndef M_PI

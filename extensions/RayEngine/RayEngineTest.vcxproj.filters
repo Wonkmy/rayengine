@@ -45,6 +45,9 @@
     <ClCompile Include="..\..\src\engine\software_3d_core.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\engine\BulletEntity.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\engine\stb_image_write.h">
@@ -75,6 +78,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\engine\brigeImgui.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\engine\BulletEntity.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

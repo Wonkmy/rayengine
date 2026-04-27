@@ -37,7 +37,7 @@ void RunGame(Actor* actor);
 #define CAMERA_ZOOM 1.0f
 
 // 窗口相关
-#define WINDOW_CENTER Vector2{ GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f }
+#define WINDOW_CENTER Vector2{ GAME_WIDTH / 2.0f, GAME_HEIGHT / 2.0f }
 
 void initGame();
 Font MyLoadFont();

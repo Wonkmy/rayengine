@@ -2,6 +2,7 @@
 #ifndef PlayerEntity_H
 #define PlayerEntity_H
 #include "Entity.h"
+#include "BulletEntity.h"
 #include <string>
 #include "game.h"
 using namespace std;
@@ -16,6 +17,8 @@ public:
     void OnDraw() override;
     void OnDispose() override;
     void OnGUI() override;
+
+    void OnClicked();
 };
 
 #endif // PlayerEntity_H
