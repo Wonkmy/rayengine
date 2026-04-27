@@ -4,6 +4,8 @@
 #include "raylib.h" 
 #include <vector>
 #include <memory>
+#include "TagManager.h"
+#include "brigeImgui.h"
 
 #define PlayerEntityTexturePath1 "assets/sprites/f1.png"
 #define PlayerEntityTexturePath2 "assets/sprites/f2.png"
@@ -16,6 +18,7 @@ public:
 	explicit Entity();
 	virtual ~Entity();
 	string name;
+	string tag;
 	int id;
 	bool active;
 	bool _isClicked;
@@ -31,6 +34,7 @@ public:
 	virtual void OnDispose();
 	virtual void UpdateBoundingBox();
 	virtual bool IsClicked();
+	virtual void SetTag(const char* _tag);
 };
 // Entity相关
 extern std::vector<std::unique_ptr<Entity>> entitys;
@@ -38,8 +42,9 @@ extern int globalEntityId;// 全局实体ID计数器
 extern int globalResetId;// 全局资源ID计数器
 extern enum ResourceId {
 	PlayerTexture = 1,
-	BulletTexture = 2,
-	EnemyTexture = 3,
+	PlayerTexture_2 = 2,
+	BulletTexture = 3,
+	EnemyTexture = 4,
 };
 
 #endif // ENTITY_H

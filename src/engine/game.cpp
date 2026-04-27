@@ -1,6 +1,7 @@
 ﻿#define RAYGUI_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "game.h"
+#include "brigeImgui.h"
 Camera2D camera2d;
 void initGame() {
 	// 初始化游戏相关资源
@@ -34,6 +35,65 @@ Font MyLoadFont()
 	free(codepoints);
 
     return font;
+}
+
+int GetIniInt(const char* filePath, const char* targetKey, int defaultValue)
+{
+	char* content = LoadFileText(filePath);
+	if (!content)
+	{
+		printf("Failed to load file: %s\n", filePath);
+		return defaultValue;
+	}
+
+	int result = defaultValue;
+
+	char* line = strtok(content, "\n");
+	while (line != NULL)
+	{
+		char* equal = strchr(line, '=');
+		if (equal)
+		{
+			*equal = '\0';
+
+			char* key = line;
+			char* value = equal + 1;
+
+			// 去掉 key 前空格
+			while (*key == ' ') key++;
+
+			// 去掉 key 末尾空格
+			char* keyEnd = key + strlen(key) - 1;
+			while (keyEnd > key && *keyEnd == ' ')
+			{
+				*keyEnd = '\0';
+				keyEnd--;
+			}
+
+			// 去掉 value 前空格
+			while (*value == ' ') value++;
+
+			// 去掉 value 末尾的 \r 或空格
+			char* valueEnd = value + strlen(value) - 1;
+			while (valueEnd > value && (*valueEnd == ' ' || *valueEnd == '\r'))
+			{
+				*valueEnd = '\0';
+				valueEnd--;
+			}
+
+			// 匹配 key
+			if (strcmp(key, targetKey) == 0)
+			{
+				result = atoi(value);
+				break;
+			}
+		}
+
+		line = strtok(NULL, "\n");
+	}
+
+	UnloadFileText(content);
+	return result;
 }
 
 void CameraShake(float intensity, float duration) {

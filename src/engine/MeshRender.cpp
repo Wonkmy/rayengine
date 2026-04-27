@@ -26,8 +26,3 @@ void MeshRenderOnDraw() {
 void MeshRenderOnDispose() {
 	UnloadModel(model);
 }
-
-
-//(Vector3) {
-//	0.0f, 20, -10.0f
-//};

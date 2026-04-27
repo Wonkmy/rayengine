@@ -6,11 +6,13 @@ int globalEntityId = 0;// 全局实体ID计数器
 int globalResetId = 0;// 全局资源ID计数器
 void EntityManagerOnStart() {
 	PlayerEntity* playerEntity = new PlayerEntity();
+	playerEntity->SetTag(TAG_PLAYER);
 	CreateEntity("Player1", PlayerTexture, PlayerEntityTexturePath1, playerEntity);
 
-	PlayerEntity* playerEntity1 = new PlayerEntity();
-	CreateEntity("Player2", PlayerTexture, PlayerEntityTexturePath2, playerEntity1);
-	playerEntity1->position = Vector2{ 0.0f, 100.0f };
+	EnemyEntity* enemyEntity = new EnemyEntity();
+	enemyEntity->SetTag(TAG_ENEMY);
+	CreateEntity("Enemy1", PlayerTexture_2, PlayerEntityTexturePath2, enemyEntity);
+	enemyEntity->position = Vector2{ 200.0f, -150.0f };
 }
 void EntityManagerOnUpdate() {
     for (int i = 0; i < entitys.size(); i++) {
@@ -37,7 +39,7 @@ void EntityManagerOnGUI() {
 //	//char finalText[100];
 //	//snprintf(finalText, sizeof(finalText), "X: %.1f Y: %.1f\nName: %s", entity->position.x,entity->position.y, entity->name);
 //	//ImGuiImpl_DrawHierarchy();
-//	//ImGuiImpl_DrawText("Transform", 10, 50, "finalText");
+	//ImGuiImpl_DrawText("Transform", 10, 50, "finalText");
 //	/*for (int i = 0; i < count; i++)
 //	{
 //		if (!objects[i]->active) continue;
@@ -127,9 +129,34 @@ Entity* GetEntityById(int id) {
 	}
 }
 
-bool CheckEntityCollision(int id1, int id2) {
-	auto entity1 = GetEntityById(id1);
-	auto entity2 = GetEntityById(id2);
+Entity* GetEntityByName(const char* name) {
+	if (entitys.size() > 0) {
+		for (int i = 0; i < entitys.size(); i++)
+		{
+			if (entitys[i]->name == name) {
+				return entitys[i].get();
+			}
+		}
+		return nullptr; // 如果没有找到，返回nullptr
+	}
+}
+
+Entity* GetEntityByTag(const char* tag) {
+	if (entitys.size() > 0) {
+		for (int i = 0; i < entitys.size(); i++)
+		{
+			if (entitys[i]->tag == tag) {
+				return entitys[i].get();
+			}
+		}
+		return nullptr; // 如果没有找到，返回nullptr
+	}
+}
+
+
+bool CheckEntityCollision(const char* name1, const char* name2) {
+	auto entity1 = GetEntityByName(name1);
+	auto entity2 = GetEntityByName(name2);
 	if (entity1 == nullptr || entity2 == nullptr) {
 		return false; // 如果任一实体不存在，返回false
 	}

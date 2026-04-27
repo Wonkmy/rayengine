@@ -21,7 +21,22 @@ void CreateEntity(const char* _name, const char* _texturePath,Entity* _entity);
 void CreateEntity(const char* _name, int resid, const char* _texturePath, Entity* _entity);
 void RemoveEntity(int id);
 Entity* GetEntityById(int id);
-bool CheckEntityCollision(int id1, int id2);
+Entity* GetEntityByName(const char* name);
+Entity* GetEntityByTag(const char* tag);
+
+template<typename T> T* GetEntityByTag(const char* tag) {
+	if (entitys.size() > 0) {
+		for (int i = 0; i < entitys.size(); i++)
+		{
+			if (entitys[i]->tag == tag) {
+				return dynamic_cast<T*>(entitys[i].get());
+			}
+		}
+	}
+	return nullptr; // 如果没有找到，返回nullptr
+}
+
+bool CheckEntityCollision(const char* name1, const char* name2);
 
 // 纹理管理函数
 TextureRegister* GetTextureById(int id);

@@ -3,6 +3,7 @@
 #define PlayerEntity_H
 #include "Entity.h"
 #include "BulletEntity.h"
+#include "EnemyEntity.h"
 #include <string>
 #include "game.h"
 using namespace std;

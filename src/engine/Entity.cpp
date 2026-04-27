@@ -3,7 +3,8 @@
 Entity::Entity() {
 }
 
-void Entity::OnStart() {}
+void Entity::OnStart() {
+}
 
 void Entity::OnUpdate() {
 }
@@ -30,6 +31,15 @@ bool Entity::IsClicked(){
 	}
 	else {
 		return false;
+	}
+}
+
+void Entity::SetTag(const char* _tag) {
+	if(_tag != nullptr){
+		this->tag = _tag;
+	}
+	else {
+		this->tag = "Default";
 	}
 }
 

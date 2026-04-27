@@ -5,7 +5,7 @@ PlayerEntity::PlayerEntity() {
 }
 
 void PlayerEntity::OnStart() {
-	//playerEntity->drawBoundingBox = true;
+	this->drawBoundingBox = false;
 	angle = 0.0f;
 	active = true;
 	position = Vector2{ 0.0f, 0.0f };
@@ -24,8 +24,9 @@ void PlayerEntity::OnUpdate() {
 
 void PlayerEntity::OnClicked() {
 	BulletEntity* bulletEntity = new BulletEntity();
+	bulletEntity->SetTag(TAG_BULLET);
 	CreateEntity("Bullet1", BulletTexture, BulletEntityTexturePath, bulletEntity);
-	bulletEntity->position = this->position;
+	bulletEntity->position = Vector2{ this->position.x,this->position.y - 75 };
 }
 
 void PlayerEntity::OnDraw() {

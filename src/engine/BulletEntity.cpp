@@ -1,12 +1,13 @@
 ﻿#include "BulletEntity.h"
+#include "EnemyEntity.h"
 
 BulletEntity::BulletEntity() {
 }
 
 void BulletEntity::OnStart() {
-	angle = 0.0f;
+	angle = 180.0f;
 	active = true;
-	drawBoundingBox = true;
+	this->drawBoundingBox = false;
 	position = Vector2{ 0.0f, 0.0f };
 }
 
@@ -15,8 +16,15 @@ void BulletEntity::OnUpdate() {
 	// 这里可以添加子弹的移动逻辑
 	this->position.y -= 5.0f; // 例如，子弹向上移动
 	// 更新子弹的边界框
-	if (drawBoundingBox) {
-		UpdateBoundingBox();
+	UpdateBoundingBox();
+
+	EnemyEntity* enemyEntity = GetEntityByTag<EnemyEntity>(TAG_ENEMY);
+	if (enemyEntity != NULL) {
+		bool isColliding = CheckEntityCollision(this->name.c_str(), enemyEntity->name.c_str()); // 检测与敌人实体的碰撞
+		if (isColliding) {
+			enemyEntity->TakeDamage(20); // 对敌人造成伤害
+			RemoveEntity(this->id);
+		}
 	}
 
 	if (this->position.y <= -GetScreenHeight() * 0.5f) {
