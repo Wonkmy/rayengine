@@ -13,5 +13,7 @@ class BulletEntity :public Entity
 	void OnDraw() override;
 	void OnDispose() override;
 	void OnGUI() override;
+	void OnCollisionEnter2D(Entity* other) override;
+	bool isCollidingWithEnemy = false;
 };
 

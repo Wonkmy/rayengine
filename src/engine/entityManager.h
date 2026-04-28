@@ -9,6 +9,7 @@ typedef struct TextureRegister {
 	Texture2D texture;
 } TextureRegister;
 
+
 // 生命周期函数
 void EntityManagerOnStart();
 void EntityManagerOnUpdate();
@@ -23,6 +24,8 @@ void RemoveEntity(int id);
 Entity* GetEntityById(int id);
 Entity* GetEntityByName(const char* name);
 Entity* GetEntityByTag(const char* tag);
+void SpwanEnemys();
+
 
 template<typename T> T* GetEntityByTag(const char* tag) {
 	if (entitys.size() > 0) {
@@ -37,7 +40,8 @@ template<typename T> T* GetEntityByTag(const char* tag) {
 }
 
 bool CheckEntityCollision(const char* name1, const char* name2);
-
+bool CheckEntityCollisionByTag(const char* tag1, const char* tag2);
+void UpdateCollision(Entity* a, Entity* b);
 // 纹理管理函数
 TextureRegister* GetTextureById(int id);
 Texture2D LoadTextureToPool(int id, const char* texturePath);

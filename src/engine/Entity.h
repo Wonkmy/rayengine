@@ -7,10 +7,16 @@
 #include "TagManager.h"
 #include "brigeImgui.h"
 
-#define PlayerEntityTexturePath1 "assets/sprites/f1.png"
+#define PlayerEntityTexturePath1 "assets/sprites/p1.png"
 #define PlayerEntityTexturePath2 "assets/sprites/f2.png"
+#define EnemyEntityTexturePath "assets/sprites/p2.png"
 #define BulletEntityTexturePath "assets/sprites/bullet.png"
 
+typedef struct Collider {
+	BoundingBox box;
+	bool isColliding;     // 当前帧
+	bool wasColliding;    // 上一帧
+} Collider;
 
 using namespace std;
 class Entity {
@@ -26,6 +32,7 @@ public:
 	Vector2 position;
 	Texture2D texture;
 	BoundingBox boundingBox;
+	Collider collider;
 	bool drawBoundingBox;
 	virtual void OnStart();
 	virtual void OnUpdate();
@@ -35,6 +42,7 @@ public:
 	virtual void UpdateBoundingBox();
 	virtual bool IsClicked();
 	virtual void SetTag(const char* _tag);
+	virtual void OnCollisionEnter2D(Entity* other);
 };
 // Entity相关
 extern std::vector<std::unique_ptr<Entity>> entitys;

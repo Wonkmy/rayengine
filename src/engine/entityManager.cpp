@@ -1,25 +1,46 @@
 ﻿#include "PlayerEntity.h"
+//#define OpenModel    // 直接开启模型渲染功能，测试用
+
+#ifdef OpenModel
+#include "MeshRender.h"
+#endif
 std::vector<std::unique_ptr<Entity>> entitys;
 std::vector<std::unique_ptr<TextureRegister>> allTexturePool;
 
 int globalEntityId = 0;// 全局实体ID计数器
 int globalResetId = 0;// 全局资源ID计数器
+
+float enemySpawnTimer = 0.0f; // 敌人生成计时器
+float enemySpawnInterval = 2.0f; // 敌人生成间隔（秒）
 void EntityManagerOnStart() {
 	PlayerEntity* playerEntity = new PlayerEntity();
 	playerEntity->SetTag(TAG_PLAYER);
 	CreateEntity("Player1", PlayerTexture, PlayerEntityTexturePath1, playerEntity);
+#ifdef OpenModel
+	MeshRenderOnStart();
+#endif
+}
 
+void SpwanEnemys() {
 	EnemyEntity* enemyEntity = new EnemyEntity();
 	enemyEntity->SetTag(TAG_ENEMY);
-	CreateEntity("Enemy1", PlayerTexture_2, PlayerEntityTexturePath2, enemyEntity);
-	enemyEntity->position = Vector2{ 200.0f, -150.0f };
+	CreateEntity("Enemy1", EnemyTexture, EnemyEntityTexturePath, enemyEntity);
+	float randomX = GetRandomValue(-GetScreenWidth() / 2.0f + enemyEntity->texture.width / 2, GetScreenWidth() / 2.0f - enemyEntity->texture.width / 2);
+	enemyEntity->position = Vector2{ randomX, -GetScreenHeight() / 2.0f - enemyEntity->texture.height };
 }
+
+
 void EntityManagerOnUpdate() {
     for (int i = 0; i < entitys.size(); i++) {
         if (entitys[i]->active) {
             entitys[i]->OnUpdate();
         }
     }
+	enemySpawnTimer += GetFrameTime();
+	if (enemySpawnTimer >= enemySpawnInterval) {
+		enemySpawnTimer = 0.0f;
+		SpwanEnemys();
+	}
 }
 
 void EntityManagerOnDraw() {
@@ -28,6 +49,9 @@ void EntityManagerOnDraw() {
             entitys[i]->OnDraw();
         }
     }
+#ifdef OpenModel
+	MeshRenderOnDraw();
+#endif
 }
 void EntityManagerOnGUI() {
     for (int i = 0; i < entitys.size(); i++) {
@@ -62,9 +86,14 @@ void EntityManagerOnDispose() {
 		UnloadTexture(allTexturePool[i]->texture);
 	}
 	allTexturePool.clear();
+#ifdef OpenModel
+	MeshRenderOnDispose();
+#endif
 }
 void CreateEntity(const char* _name, int resid, const char* _texturePath, Entity* _entity) {
-	std::string playerName = _name;
+	char nameBuf[128];
+	snprintf(nameBuf, sizeof(nameBuf), "%s%d", _name, rand() % 1000); // 给实体名称添加随机数后缀，避免重复
+	std::string playerName = nameBuf;
 	const char* playerTexturePath = _texturePath;
 	Texture2D tex = LoadTextureToPool(resid, _texturePath);
 	_entity->id = globalEntityId++;
@@ -74,9 +103,11 @@ void CreateEntity(const char* _name, int resid, const char* _texturePath, Entity
 	entitys.emplace_back(_entity);
 }
 void CreateEntity(const char* _name, const char* _texturePath, Entity* _entity) {
-	std::string playerName = _name;
+	char nameBuf[128];
+	snprintf(nameBuf, sizeof(nameBuf), "%s%d", _name, rand() % 1000); // 给实体名称添加随机数后缀，避免重复
+	std::string playerName = nameBuf;
+
 	const char* playerTexturePath = _texturePath;
-	
 	Texture2D tex = LoadTexture(_texturePath);
 	_entity->id = globalEntityId++;
 	_entity->name = playerName;
@@ -86,17 +117,17 @@ void CreateEntity(const char* _name, const char* _texturePath, Entity* _entity) 
 }
 void RemoveEntity(int id) {
 	// 第一种方式
-	//for (int i = 0; i < entitys.size(); i++) {
-	//	if (entitys[i]->id == id) {
-	//		entitys[i]->id = -1; // 标记为已销毁
-	//		entitys[i]->OnDispose();
-	//		entitys.erase(entitys.begin() + i);
-	//		break;
-	//	}
-	//}
+	for (int i = 0; i < entitys.size(); i++) {
+		if (entitys[i]->id == id) {
+			entitys[i]->id = -1; // 标记为已销毁
+			entitys[i]->OnDispose();
+			entitys.erase(entitys.begin() + i);
+			break;
+		}
+	}
 
 	// 第二种方式
-	entitys.erase(
+	/*entitys.erase(
 		std::remove_if(entitys.begin(), entitys.end(),
 			[id](const std::unique_ptr<Entity>& e) {
 				if (e->id == id) {
@@ -106,7 +137,7 @@ void RemoveEntity(int id) {
 				return false;
 			}),
 		entitys.end()
-	);
+	);*/
 
 	// 第三种方式
 	//for (auto it = entitys.begin(); it != entitys.end(); ++it) {
@@ -152,7 +183,14 @@ Entity* GetEntityByTag(const char* tag) {
 		return nullptr; // 如果没有找到，返回nullptr
 	}
 }
-
+bool CheckEntityCollisionByTag(const char* tag1, const char* tag2) {
+	auto entity1 = GetEntityByTag(tag1);
+	auto entity2 = GetEntityByTag(tag2);
+	if (entity1 == nullptr || entity2 == nullptr) {
+		return false; // 如果任一实体不存在，返回false
+	}
+	return CheckCollisionBoxes(entity1->boundingBox, entity2->boundingBox);
+}
 
 bool CheckEntityCollision(const char* name1, const char* name2) {
 	auto entity1 = GetEntityByName(name1);
@@ -162,6 +200,35 @@ bool CheckEntityCollision(const char* name1, const char* name2) {
 	}
 	return CheckCollisionBoxes(entity1->boundingBox, entity2->boundingBox);
 }
+
+void UpdateCollision(Entity* a, Entity* b)
+{
+	// 保存上一帧状态
+	a->collider.wasColliding = a->collider.isColliding;
+
+	// 当前帧检测
+	a->collider.isColliding = CheckCollisionBoxes(a->collider.box, b->collider.box);
+
+	// === 模拟 Unity ===
+
+	// OnCollisionEnter2D
+	if (!a->collider.wasColliding && a->collider.isColliding)
+	{
+		printf("Enter Collision!\n");
+		a->OnCollisionEnter2D(b);
+	}
+
+	/*if (a->collider.wasColliding && a->collider.isColliding)
+	{
+		printf("Stay Collision\n");
+	}
+
+	if (a->collider.wasColliding && !a->collider.isColliding)
+	{
+		printf("Exit Collision\n");
+	}*/
+}
+
 
 TextureRegister* GetTextureById(int id) {
 	if (allTexturePool.size() > 0) {
@@ -181,7 +248,6 @@ Texture2D LoadTextureToPool(int id, const char* texturePath) {
 			}
 		}
 	}
-
 	// 如果allTexturePool中不存在相同id的纹理，则加载并添加
 	Texture2D tex = LoadTexture(texturePath);
 	// 将纹理添加到全局纹理池中

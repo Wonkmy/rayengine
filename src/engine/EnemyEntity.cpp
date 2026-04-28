@@ -1,27 +1,31 @@
-#include "EnemyEntity.h"
+ï»¿#include "EnemyEntity.h"
 
-int totalBlood = 100;
-int currentBlood = 100;
 
 EnemyEntity::EnemyEntity() {
 }
 
 void EnemyEntity::OnStart() {
-    this->angle = 0.0f;
+    this->angle = 180.0f;
     this->active = true;
-    this->drawBoundingBox = false;
+    this->drawBoundingBox = true;
     this->position = Vector2{ 0.0f, 0.0f };
-
-	//¶ÁÈ¡config.iniÎÄ¼þÖÐµÄÑªÁ¿Öµ
+    this->collider = Collider{ boundingBox, false, false };
+	//è¯»å–config.iniæ–‡ä»¶ä¸­çš„è¡€é‡å€¼
     int enemyBlood = GetIniInt("assets/config.ini", "EnemyTotalBlood", 0);
     if (enemyBlood > 0) {
-        totalBlood = enemyBlood;
-        currentBlood = enemyBlood;
+        this->totalBlood = enemyBlood;
+        this->currentBlood = enemyBlood;
 	}
 }
 
 void EnemyEntity::OnUpdate() {
+    if (!active)return;
+    this->position.y += 1.0f;
     UpdateBoundingBox();
+
+    if (this->position.y >= GetScreenHeight() * 0.5f) {
+        RemoveEntity(this->id); // å½“ç§»å‡ºå±å¹•æ—¶ï¼Œé”€æ¯
+    }
 }
 
 void EnemyEntity::OnDraw() {
@@ -48,21 +52,22 @@ void EnemyEntity::OnGUI() {
 }
 
 void EnemyEntity::DrawBloodBar() {
-	DrawRectangle(this->position.x - 50, this->position.y - 120, 100 * (currentBlood / (float)totalBlood), 10, RED);
+	DrawRectangle(this->position.x - 50, this->position.y - 60, 100 * (this->currentBlood / (float)this->totalBlood), 10, RED);
+	DrawText(this->name.c_str(), this->position.x - 50, this->position.y - 75, 10, WHITE);
 }
 
 void EnemyEntity::TakeDamage(int damage) {
-    currentBlood -= damage;
-    if (currentBlood <= 0) {
-        currentBlood = 0;
-        // ÔÚÕâÀï¿ÉÒÔÌí¼ÓµÐÈËËÀÍöµÄÂß¼­£¬ÀýÈç²¥·Å¶¯»­¡¢µôÂäÎïÆ·µÈ
-        RemoveEntity(this->id); // Ïú»ÙµÐÈËÊµÌå
+    this->currentBlood -= damage;
+    if (this->currentBlood <= 0) {
+        this->currentBlood = 0;
+        // åœ¨è¿™é‡Œå¯ä»¥æ·»åŠ æ•Œäººæ­»äº¡çš„é€»è¾‘ï¼Œä¾‹å¦‚æ’­æ”¾åŠ¨ç”»ã€æŽ‰è½ç‰©å“ç­‰
+        RemoveEntity(this->id); // é”€æ¯æ•Œäººå®žä½“
     }
 }
 
 void EnemyEntity::OnDispose() {
     this->active = false;
-    UnloadTexture(this->texture);
+    //UnloadTexture(this->texture);
 }
 
 EnemyEntity::~EnemyEntity() {

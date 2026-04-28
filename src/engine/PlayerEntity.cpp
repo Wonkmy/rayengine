@@ -9,6 +9,7 @@ void PlayerEntity::OnStart() {
 	angle = 0.0f;
 	active = true;
 	position = Vector2{ 0.0f, 0.0f };
+	this->collider = Collider{ boundingBox, false, false };
 }
 
 void PlayerEntity::OnUpdate() {

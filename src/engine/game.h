@@ -8,6 +8,8 @@
 #include "rlImGui.h"
 #include "rlgl.h"
 #include <string.h>
+#include "lualib.h"
+#include "lauxlib.h"
 
 #define REG_API extern
 #define RAYLIB_ENGINE_EXPORT REG_API
@@ -28,7 +30,7 @@ void RunGame(Actor* actor);
 #define FPS 120.0f
 #define GAME_WIDTH 1280.0f
 #define GAME_HEIGHT 720.0f
-#define GAME_SCALE 0.25f
+#define GAME_SCALE 0.5f
 #define GAME_ROTATE 0.0f
 #define GAME_TITLE "MyGames"
 #define GAME_BACKGROUND_COLOR BLACK

@@ -12,7 +12,7 @@ void Entity::OnUpdate() {
 void Entity::OnDraw() {}
 
 void Entity::OnGUI() {}
-
+void Entity::OnCollisionEnter2D(Entity* other) {}
 void Entity::OnDispose() {
 }
 

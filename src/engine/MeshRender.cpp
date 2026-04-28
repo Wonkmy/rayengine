@@ -3,8 +3,8 @@ Model model;
 Camera camera = { 0 };
 Vector3 position = { 0.0f, 0.0f, 0.0f };
 void MeshRenderOnStart() {
-	model = LoadModel("assets/models/bridge.obj");
-	Texture2D texture = LoadTexture("assets/models/bridge_diffuse.png");
+	model = LoadModel("assets/models/house.obj");
+	Texture2D texture = LoadTexture("assets/models/house.jpg");
 	model.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = texture;
 	// 初始化摄像机
 	camera.position = Vector3{ 0.0f, 20.0f, -10.0f };
@@ -19,8 +19,9 @@ void MeshRenderOnUpdate() {
 void MeshRenderOnDraw() {
 	BeginMode3D(camera);
 		//DrawModel(model, position, 1.0f, WHITE);
-		//DrawGrid(20, 10.0f);
-		DrawTriangle(Vector2{ 0.0f, 0.0f}, Vector2{ 0, 1}, Vector2{ 1, 0}, RED);
+		DrawModelEx(model, position, Vector3{ 0.0f, 1.0f, 0.0f }, 45.0f, Vector3{ 5.0f, 5.0f, 5.0f }, WHITE);
+		DrawGrid(20, 10.0f);
+		//DrawTriangle(Vector2{ 0.0f, 0.0f}, Vector2{ 0, 1}, Vector2{ 1, 0}, RED);
 	EndMode3D();
 }
 void MeshRenderOnDispose() {
