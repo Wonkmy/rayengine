@@ -32,7 +32,7 @@ void RunGame(Actor* actor);
 #define GAME_HEIGHT 720.0f
 #define GAME_SCALE 0.5f
 #define GAME_ROTATE 0.0f
-#define GAME_TITLE "MyGames"
+#define GAME_TITLE "RayEditor-v0.0.1"
 #define GAME_BACKGROUND_COLOR BLACK
 #define GAME_ASSETS_ROOT_PATH "assets/"// 游戏资源根目录
 

@@ -21,9 +21,9 @@ void ImGuiImpl_Init()
 
 void ImGuiImpl_DrawText(const char* name,float p_x, float p_y, const char* fmt,...)
 {
-    ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoMove;
+    //ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoMove;
 	ImGui::SetNextWindowSize(ImVec2(300, 300), ImGuiCond_Always);
-    ImGui::Begin(name,NULL, window_flags);
+    ImGui::Begin(name);
     ImGui::SetCursorPos(ImVec2(p_x, p_y));
     ImGui::Text(fmt);
     if (selectedId != -1) {
@@ -105,7 +105,7 @@ void DrawNode(int index)
     );
 
     // 点击选中
-    if (ImGui::IsItemClicked())
+	if (ImGui::IsItemClicked())// 此函数不填参数表示左键点击 
     {
         selectedId = node->id;
     }

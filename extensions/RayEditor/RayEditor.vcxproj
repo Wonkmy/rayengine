@@ -18,41 +18,12 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\engine\brigeImgui.cpp" />
-    <ClCompile Include="..\..\src\engine\BulletEntity.cpp" />
-    <ClCompile Include="..\..\src\engine\EnemyEntity.cpp" />
-    <ClCompile Include="..\..\src\engine\Entity.cpp" />
-    <ClCompile Include="..\..\src\engine\entityManager.cpp" />
-    <ClCompile Include="..\..\src\engine\game.cpp" />
-    <ClCompile Include="..\..\src\engine\graphics.cpp" />
-    <ClCompile Include="..\..\src\engine\mainlayer.cpp" />
-    <ClCompile Include="..\..\src\engine\MeshRender.cpp" />
-    <ClCompile Include="..\..\src\engine\PlayerEntity.cpp" />
-    <ClCompile Include="..\..\src\engine\software_3d_core.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\src\engine\brigeImgui.h" />
-    <ClInclude Include="..\..\src\engine\BulletEntity.h" />
-    <ClInclude Include="..\..\src\engine\EnemyEntity.h" />
-    <ClInclude Include="..\..\src\engine\Entity.h" />
-    <ClInclude Include="..\..\src\engine\entityManager.h" />
-    <ClInclude Include="..\..\src\engine\game.h" />
-    <ClInclude Include="..\..\src\engine\graphics.h" />
-    <ClInclude Include="..\..\src\engine\mainlayer.h" />
-    <ClInclude Include="..\..\src\engine\MeshRender.h" />
-    <ClInclude Include="..\..\src\engine\PlayerEntity.h" />
-    <ClInclude Include="..\..\src\engine\rpng.h" />
-    <ClInclude Include="..\..\src\engine\stb_image_write.h" />
-    <ClInclude Include="..\..\src\engine\TagManager.h" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{aac71ba1-8a40-4ab6-a0a2-8310839bff24}</ProjectGuid>
-    <RootNamespace>RayEngineTest</RootNamespace>
+    <ProjectGuid>{9a58476f-6f53-4e3e-8155-24e393b3eaa4}</ProjectGuid>
+    <RootNamespace>RayEditor</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>RayEngine</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -69,7 +40,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -100,7 +71,6 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>..\..\out;$(LibraryPath)</LibraryPath>
     <OutDir>..\..\out</OutDir>
     <IntDir>..\..\temp</IntDir>
   </PropertyGroup>
@@ -133,15 +103,15 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\extensions\rlImGui-main;$(SolutionDir)\extensions\imgui;$(SolutionDir)\src\luabrige;$(SolutionDir)\src\3rdlib\raygui-4.0\src;$(SolutionDir)\extensions\Raylib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\src\engine;$(SolutionDir)\extensions\rlImGui-main;$(SolutionDir)\extensions\imgui;$(SolutionDir)\src\luabrige;$(SolutionDir)\src\3rdlib\raygui-4.0\src;$(SolutionDir)\extensions\Raylib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>raylib.lib;imguilib.lib;lualib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>raylib.lib;imguilib.lib;lualib.lib;RayEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\;$(SolutionDir)\out;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -159,6 +129,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\editor\main.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
