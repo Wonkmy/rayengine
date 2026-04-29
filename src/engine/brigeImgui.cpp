@@ -1,6 +1,7 @@
 ﻿
 #include "imgui.h"
 #include "brigeImgui.h"
+#include <imgui_internal.h>
 
 Node nodes[] = {
     {"Root", 0, -1},
@@ -34,7 +35,7 @@ void ImGuiImpl_DrawText(const char* name,float p_x, float p_y, const char* fmt,.
 
 void ImGuiImpl_CraeteDockSpace()
 {
-    ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking;
+    ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoDocking;
 
     // 全屏窗口
     ImGuiViewport* viewport = ImGui::GetMainViewport();

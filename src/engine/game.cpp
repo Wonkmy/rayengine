@@ -12,8 +12,6 @@ void initGame() {
 	camera2d.rotation = GAME_ROTATE;
 	camera2d.zoom = CAMERA_ZOOM;
 	SetTargetFPS(FPS);
-	rlImGuiSetup(true);
-	ImGuiImpl_Init();
 }
 
 Font MyLoadFont()
@@ -118,23 +116,10 @@ Actor NewGame() {
 	return mainLayer;
 }
 void RunGame(Actor *actor) {
-	actor->OnStart();
-	
-	while (!WindowShouldClose())
-	{
-		BeginDrawing();
-			ClearBackground(GAME_BACKGROUND_COLOR);
-				actor->OnUpdate();
-				BeginMode2D(camera2d);// 开始2D模式
-					actor->OnDraw();
-				EndMode2D();// 这里会增加一次DrawCall
-				DrawText(TextFormat("DrawCalls: %d", rlGetDrawCallCounter()), 10, 40, 20, GREEN);
-				DrawFPS(GetScreenWidth() - 100, 10);
-				rlImGuiBegin();
-					actor->OnGUI();
-				rlImGuiEnd();
-		EndDrawing();
-	}
-	actor->OnDispose();
-	CloseWindow();
+	actor->OnUpdate();
+	BeginMode2D(camera2d);// 开始2D模式
+	actor->OnDraw();
+	EndMode2D();// 这里会增加一次DrawCall
+	DrawText(TextFormat("DrawCalls: %d", rlGetDrawCallCounter()), 10, 40, 20, GREEN);
+	DrawFPS(GetScreenWidth() - 100, 10);
 }

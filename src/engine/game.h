@@ -10,6 +10,7 @@
 #include <string.h>
 #include "lualib.h"
 #include "lauxlib.h"
+#include "raygui.h"
 
 #define REG_API extern
 #define RAYLIB_ENGINE_EXPORT REG_API
