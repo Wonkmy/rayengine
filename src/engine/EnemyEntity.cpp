@@ -67,6 +67,7 @@ void EnemyEntity::TakeDamage(int damage) {
 
 void EnemyEntity::OnDispose() {
     this->active = false;
+    
     //UnloadTexture(this->texture);
 }
 

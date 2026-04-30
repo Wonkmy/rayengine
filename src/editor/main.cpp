@@ -12,7 +12,7 @@ bool singleRun = false;
 int main() {
 	Actor mainLayer = NewGame();
 	initGame();
-
+	UIManager* sm_pSharedUIManager = new UIManager();
 	rlImGuiSetup(true);
 	ImGuiImpl_Init();
 	
@@ -28,7 +28,7 @@ int main() {
 			if (runGame == false) {
 				rlImGuiBegin();
 					ImGuiImpl_CraeteDockSpace();
-					UIManager::
+					sm_pSharedUIManager->CreatePanel();
 				rlImGuiEnd();
 			}
 			

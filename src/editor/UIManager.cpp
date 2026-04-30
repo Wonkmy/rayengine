@@ -3,7 +3,7 @@
 float buttonWidth = 28;
 float spacing = 2;
 
-UIManager* UIManager::sm_pSharedUIManager = nullptr;
+//UIManager* UIManager::sm_pSharedUIManager = nullptr;
 
 void UIManager:: CreatePanel() {
 	ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar;
