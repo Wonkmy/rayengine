@@ -6,7 +6,7 @@
 // 1 通过engine那边提供的接口，启动游戏
 // 2 必要时做一些调试性的窗口，基于imgui库
 
-bool runGame = false;
+bool runGame = true;
 bool singleRun = false;
 
 int main() {
@@ -15,22 +15,23 @@ int main() {
 	UIManager* sm_pSharedUIManager = new UIManager();
 	rlImGuiSetup(true);
 	ImGuiImpl_Init();
-	
+	sm_pSharedUIManager->Init();
 	mainLayer.OnStart();
 	
 	while (!WindowShouldClose()) {
 		BeginDrawing();
 			ClearBackground(BLACK);
 			if (runGame) {
-				RunGame(&mainLayer);
+				//RunGame(&mainLayer);
+				sm_pSharedUIManager->Test();
 			}
 			
-			if (runGame == false) {
+			/*if (runGame == false) {
 				rlImGuiBegin();
 					ImGuiImpl_CraeteDockSpace();
 					sm_pSharedUIManager->CreatePanel();
 				rlImGuiEnd();
-			}
+			}*/
 			
 		EndDrawing();
 	}

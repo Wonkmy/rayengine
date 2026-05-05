@@ -41,6 +41,7 @@
     <ClInclude Include="..\..\src\engine\graphics.h" />
     <ClInclude Include="..\..\src\engine\mainlayer.h" />
     <ClInclude Include="..\..\src\engine\MeshRender.h" />
+    <ClInclude Include="..\..\src\engine\miniui.h" />
     <ClInclude Include="..\..\src\engine\PlayerEntity.h" />
     <ClInclude Include="..\..\src\engine\rpng.h" />
     <ClInclude Include="..\..\src\engine\stb_image_write.h" />

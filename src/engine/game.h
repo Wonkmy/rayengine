@@ -29,8 +29,8 @@ void RunGame(Actor* actor);
 // GAME 相关
 #define GAME_MODE_2D
 #define FPS 120.0f
-#define GAME_WIDTH 1280.0f
-#define GAME_HEIGHT 720.0f
+#define GAME_WIDTH 1920.0f
+#define GAME_HEIGHT 1080.0f
 #define GAME_SCALE 0.5f
 #define GAME_ROTATE 0.0f
 #define GAME_TITLE "RayEditor-v0.0.1"
@@ -49,12 +49,6 @@ Font MyLoadFont();
 RAYLIB_ENGINE_EXPORT Camera2D camera2d;
 
 void CameraShake(float intensity, float duration);
-// RAYLIB_ENGINE_EXPORT void ImGuiImpl_Init();
-// RAYLIB_ENGINE_EXPORT void ImGuiImpl_DrawText(const char* name, int p_x, int p_y, const char* fmt,...);
-// RAYLIB_ENGINE_EXPORT void ImGuiImpl_CraeteDockSpace();
-// RAYLIB_ENGINE_EXPORT void ImGuiImpl_DrawHierarchy();// 绘制层级面板
-// RAYLIB_ENGINE_EXPORT void ImGuiImpl_DrawSceneView();// 绘制场景面板
-// RAYLIB_ENGINE_EXPORT void ImGuiImpl_DrawGameView();// 绘制检查器面板
 
 // 工具函数定义
 Vector2 rotate_vector(Vector2 v, Vector2 center, double angle_deg);

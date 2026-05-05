@@ -24,9 +24,6 @@
     <ClCompile Include="..\..\src\engine\mainlayer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\engine\main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\engine\graphics.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -90,6 +87,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\engine\TagManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\engine\miniui.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
