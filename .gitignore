@@ -53,3 +53,8 @@ dkms.conf
 
 # debug information files
 *.dwo
+# vs project
+.vs/*
+x64/*
+RayEngine/x64/*
+temp/*
